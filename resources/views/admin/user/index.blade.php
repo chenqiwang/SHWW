@@ -77,7 +77,7 @@
                                     </table>
                                 </div>
                                 <div class="am-u-lg-12 am-cf">
-                                    {!! $list->fragment('user')->render() !!}
+                                    {!! $list->appends($where)->render() !!}
                                 </div>
                             </div>
                         </div>

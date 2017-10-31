@@ -32,7 +32,7 @@ class LoginController extends Controller
         $info = $request->all();
         $phone = $info['phone'];
         $pwd = $info['pwd'];
-        $pwd = md5($pwd);
+        //$pwd = md5($pwd);
         $res = User_RegloginModel::where('phone',$phone)->first();
         if ($res->pwd == $pwd){
             $res = User_infoModel::where('rid', $res->id)->first();

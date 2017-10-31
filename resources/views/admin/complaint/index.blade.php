@@ -11,6 +11,7 @@
                             </div>
                             @if (session('msg'))
                                 <script>
+
                                     alert("{{ session('msg') }}");
                                 </script>
                             @endif
@@ -64,7 +65,7 @@
                                     </table>
                                 </div>
                                 <div class="am-u-lg-12 am-cf">
-                                    {!! $list->fragment('comp')->render() !!}
+                                    {!! $list->appends($where)->render() !!}
                                 </div>
                             </div>
                         </div>

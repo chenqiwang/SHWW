@@ -20,10 +20,12 @@ class CompController extends Controller
     {
         //拿出需要的表
         $ob = DB::table('tab_complaint');
+        $where = [];
         // 判断是否搜索了search字段
         if($request->has('search')){
             // 获取用户搜索的Name字段的值
             $name = $request->input('search');
+            $where['search'] = $name;
             //给查询语句添加上where条件
             $ob->join('tab_user_info', function ($join) use($name){
                 $join->on('tab_complaint.uid', '=', 'tab_user_info.id')
@@ -35,8 +37,8 @@ class CompController extends Controller
             ->join('tab_user_info', 'tab_complaint.uid', '=', 'tab_user_info.id')
             ->select('tab_complaint.*', 'tab_user_info.name');
         }
-        $list = $ob->paginate(3);
-        return view('admin.complaint.index', compact('list'));
+        $list = $ob->paginate(1);
+        return view('admin.complaint.index', ['list' => $list, 'where' => $where]);
     }
 
     /**

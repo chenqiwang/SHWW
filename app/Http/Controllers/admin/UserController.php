@@ -21,11 +21,13 @@ class UserController extends Controller
 
         //拿出需要的表
         $ob = DB::table('tab_user_info');
+        $where = [];
         // 判断是否搜索了search字段
         if($request->has('search')){
             // 获取用户搜索的Name字段的值
             $phone = $request->input('search');
             //给查询语句添加上where条件
+            $where['search'] = $phone;
             $ob->join('tab_user_reglogin', function ($join) use($phone){
                 $join->on('tab_user_info.rid', '=', 'tab_user_reglogin.id')
                      ->where('tab_user_reglogin.phone', 'like', '%'.$phone.'%');
@@ -37,7 +39,7 @@ class UserController extends Controller
             ->select('tab_user_info.*', 'tab_user_reglogin.phone');
         }
         $list = $ob->paginate(1);
-        return view('admin.user.index', compact('list'));
+        return view('admin.user.index', ['list' => $list, 'where' => $where]);
     }
 
     /**
