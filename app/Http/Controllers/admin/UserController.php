@@ -19,10 +19,11 @@ class UserController extends Controller
     {
 
      $list = DB::table('tab_problem')
-        ->where('tab_problem.status','=',0)
-        ->join('tab_user_info','tab_problem.uid','=','tab_user_info.rid')
-        ->select('tab_problem.*','tab_user_info.*') 
-        ->paginate(3);
+        ->join('tab_user_info',function($join){
+             $join->on('tab_problem.uid','=','tab_user_info.rid')
+        ->where('tab_problem.status','=',1); 
+        })
+        ->paginate(20);
         // dd($list);
         // ->simplePaginate(1);
         return view('admin.question.index',compact('list'));

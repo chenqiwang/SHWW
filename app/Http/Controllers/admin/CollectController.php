@@ -5,10 +5,10 @@ namespace App\Http\Controllers\admin;
 use Illuminate\Http\Request;
 use DB;
 use App\Http\Requests;
-use App\Http\Models;
 use App\Http\Controllers\Controller;
-
-class ContentController extends Controller
+use App\Http\Models;
+use App\Http\Models\CollectionModel;
+class CollectController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,31 +16,29 @@ class ContentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        // echo 111;
-        //问题详情
-         $list = DB::table('tab_problem')
-
-                    ->join('tab_answer','tab_problem.id','=','tab_answer.pid')
-                    ->select('tab_problem.*','tab_answer.*')
-
-                    // ->simplePaginate(1);
-
-                    ->get();
-                  
-        return view('admin.question.content',compact('list'));
+    {           
+        //
+        $res = DB::table('tab_collection')        
+                ->join('tab_problem', 'tab_collection.id','=','tab_problem.id')
+                ->join('tab_user_info','tab_collection.id','=','tab_user_info.id')
+                ->join('tab_answer','tab_collection.aid','=','tab_answer.id')
+                 ->select('tab_collection.id','tab_problem.name','tab_user_info.nickname','tab_answer.content')
+                
+                   ->get();
+                 // dd($res);
+                 
+       return view('admin.question.collect',compact('res'));
     }
-        
+   
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
-     */
+     
     public function create()
     {
         //
-
     }
 
     /**
@@ -52,6 +50,7 @@ class ContentController extends Controller
     public function store(Request $request)
     {
         //
+      
     }
 
     /**
@@ -62,17 +61,7 @@ class ContentController extends Controller
      */
     public function show($id)
     {
-       //
-        // $a = $_GET($id);
-        
-        $list = DB::table('tab_problem')
-                    
-                    ->join('tab_answer', function($join) use($id){
-                        $join->on('tab_problem.id','=','tab_answer.pid')
-                             ->where('tab_problem.id','=',$id);
-                    })
-                    ->get();
-       return view('admin.question.content',compact('list'));
+           
     }
    
 
@@ -85,6 +74,7 @@ class ContentController extends Controller
     public function edit($id)
     {
         //
+       
     }
 
     /**
@@ -97,6 +87,7 @@ class ContentController extends Controller
     public function update(Request $request, $id)
     {
         //
+        return ($id);
     }
 
     /**
@@ -107,6 +98,6 @@ class ContentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //   return ($lid);
     }
 }

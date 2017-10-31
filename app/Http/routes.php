@@ -18,15 +18,24 @@ Route::group(['prefix' => 'admin'],function(){
   /* Route::get('/index',function(){
    		return view('admin.index');
 	});*/
-	//后台路由	
-   Route::get('wt','admin\QuestionController@index');
-   //问题列表路由
+//后台路由	
+   Route::get('index','admin\QuestionController@index');
+
+//问题列表路由
    Route::get('tabulation', 'admin\UserController@index');
-   //连接数据库路由
+
+//连接数据库路由
    Route::get('user','admin\UserController@index');
-   //问题详情路由
-   // Route::get('particulars', 'admin\UserController@particulars');
+
+//问题详情路由
    Route::resource('recycling','admin\RecyclingController');
-   //问题内容路由
+
+//问题内容路由
    Route::resource('content','admin\ContentController');
+
+// 热门问题
+    Route::resource('Hotspot','admin\HotspotController');
+
+//用户收藏
+   Route::resource('collect','admin\CollectController');
 });

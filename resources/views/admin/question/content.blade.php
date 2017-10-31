@@ -1,33 +1,29 @@
 @extends('parent.index')
 @section('content')
-
-<div class="widget-body  am-fr">
-    <div class="am-u-sm-12 am-u-md-12 am-u-lg-3">
-    </div>
-    <div class="">
-
-        <table width="100%" class="am-table am-table-compact am-table-striped tpl-table-black " id="example-r">
-            <thead>
 <!-- 遍历数据 -->
 @foreach ($list as $v)
 
-             <li class="">
-                      
-                <a class="sidebar-nav-sub-title">
-                     {{ $v->name }}
-                     </a>
-                    </li>
-            <li >   
-                 <a class="sidebar-nav-sub-title">
-                     内容: {{ $v->content }} 
-
-                     发表时间: {{ $v->revtime }} 
-                     </a>
-                    </li>
-                    
-            <tr class="sidebar-nav-sub-title">
+                <tr class="sidebar-nav-sub-title">
                         
                     </tr>
+                    <li class="sidebar-nav-link">
+        <p href="javascript:;" class="sidebar-nav-sub-title">         
+               {{ $v->name }}
+            <span class="am-icon-chevron-down  am-margin-right-sm sidebar-nav-sub-ico"></span>
+        </p>
+        <ul class="sidebar-nav sidebar-nav-sub">
+            <li class="sidebar-nav-link">
+            <p href="javascript:;">
+                    <span class="sidebar-nav-link-logo">
+                        内容: {{ $v->content }}
+                    </span>
+                </p>
+                   <li class="am-fr sidebar-nav-link">
+                          发表时间: {{ $v->revtime }}
+                    </li>
+            </li>
+        </ul>
+        </li>
 @endforeach 
         </thead>      
      </table>

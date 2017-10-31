@@ -38,20 +38,9 @@
                 <a href="javascript:;"><img src="{{ asset('admin/img/logo.png') }}" alt=""></a>
             </div>
             <!-- 右侧内容 -->
-            <div class="tpl-header-fluid">
-                <!-- 侧边切换 -->
-                <div class="am-fl tpl-header-switch-button am-icon-list">
-                    <span>
-
-                </span>
-                </div>
+           
                 <!-- 搜索 -->
-                <div class="am-fl tpl-header-search">
-                    <form class="tpl-header-search-form" action="javascript:;">
-                        <button class="tpl-header-search-btn am-icon-search"></button>
-                        <input class="tpl-header-search-box" type="text" placeholder="搜索内容...">
-                    </form>
-                </div>
+                    
                 <!-- 其它功能-->
                 <div class="am-fr tpl-header-navbar">
                     <ul>
@@ -157,6 +146,12 @@
                             </a>
                              <a href="{{ URL('admin/recycling') }}">
                                 <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 回收站
+                            </a>
+                             <a href="{{ URL('admin/Hotspot') }}">
+                                <span class="am-icon-angle-right sidebar-nav-link-logo"></span>热门问题(问题数)
+                            </a>
+                             <a href="{{ URL('admin/collect') }}">
+                                <span class="am-icon-angle-right sidebar-nav-link-logo"></span>用户收藏
                             </a>
                         </li>
                     </ul>
