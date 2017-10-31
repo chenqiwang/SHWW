@@ -12,8 +12,4 @@ class AnswerModel extends Model
 
     public $timestamps = false;
 
-    public function ss()
-    {
-    	return $this->table;
-    }
 }

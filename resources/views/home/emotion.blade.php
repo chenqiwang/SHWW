@@ -19,7 +19,6 @@
                         <i class="am-icon-plus"></i>
                         订阅
                     </button>
-                    
                 </div>
             </div>
 
@@ -52,6 +51,7 @@
                         @endif
                         @endforeach
                     </li>
+
                     @endforeach
 
                 </ul>

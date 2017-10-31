@@ -11,4 +11,8 @@ class User_infoModel extends Model
 
 
     public $timestamps = false;
+
+    public function phone(){
+    	return $this->hasOne('App\Models\User_RegloginModel', 'id', 'rid');
+    }
 }

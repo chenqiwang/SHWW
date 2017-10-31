@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Models\IntegralModel;
 use App\Models\User_infoModel;
 use App\Models\ProblemModel;
+
 use DB;
 
 class essenceController extends Controller
@@ -29,5 +30,6 @@ class essenceController extends Controller
         //问题表
         $problem = ProblemModel::get();
         return view('home.essence', compact('price', 'users','problem'));
+
     }
 }

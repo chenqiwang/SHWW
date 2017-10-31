@@ -70,6 +70,7 @@
                         <li class="am-dropdown-header">问题分类</li>
                         <!--标签表tab_label ，二级联动-->
                         @foreach( $label as $u )
+
                             <li><a href="{{ $u->url }}/{{ $u->id }}" style="font-size:12px;">{{ $u->name }}</a></li>
                         @endforeach
                     </ul>
@@ -77,14 +78,23 @@
                 @endif
                 @endforeach
             </ul>
-
+            @if(session('user'))
+                <div style="height: 70px;width: 260px; float: right">
+                    <img src="{{ asset('home/images/i/shang.png') }}" style="height: 70px;width: 70px; color: black; float: left">
+                    <a style="font-size: 16px;margin-left: 8px;">{{ session('user') }}</a>
+                    <a style="font-size: 12px;color: white;margin-left: 20px;">Lv:最强王者</a>
+                    <button class="am-btn am-btn-danger am-btn-xs am-radius" style="margin-left: 5px;" ><i class="am-icon-cog"></i>个人中心</button>
+                    <button class="am-btn am-btn-danger am-btn-xs am-radius" >注销</button>
+                </div>
+            @else
             <div class="am-topbar-right">
-                <button class="am-btn am-btn-default am-topbar-btn am-btn-sm"><span class="am-icon-pencil"></span>注册</button>
+                <a href="{{ URL('/register') }}"><button class="am-btn am-btn-default am-topbar-btn am-btn-sm"><span class="am-icon-pencil"></span>注册</button></a>
             </div>
 
             <div class="am-topbar-right">
-                <button class="am-btn am-btn-danger am-topbar-btn am-btn-sm"><span class="am-icon-user"></span> 登录</button>
+                <a href="{{ URL('/login') }}"><button class="am-btn am-btn-danger am-topbar-btn am-btn-sm"><span class="am-icon-user"></span> 登录</button></a>
             </div>
+            @endif
         </div>
     </div>
 </header>

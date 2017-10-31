@@ -59,14 +59,15 @@
                         <div class="am-u-sm-4 am-u-md-5 am-u-lg-5 am-vertical-align">
                             <div class="am-vertical-align-middle">
                                 <a href="{{ $q->url }}/{{ $q->id }}"><img src="{{ asset('image/'.$q->mview) }}"></a>
+
                             </div>
                         </div>
 
                         <div class="am-u-sm-8 am-u-md-7 am-u-lg-7">
-
                             <h3><a href="{{ $q->url }}/{{ $q->id }}">{{ $q->name }}</a></h3>
                             <h4>0000个关注</h4>
                             <p><span></span></p>
+
                         </div>
                     </div>
                 </div>

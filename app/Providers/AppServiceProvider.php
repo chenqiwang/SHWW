@@ -13,7 +13,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        
         //查询tab_navigation实现二级联动
         $navigation = DB::table('tab_navigation')->get();
 

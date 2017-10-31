@@ -1,4 +1,4 @@
-    @extends('home.public.parent')
+@extends('home.public.parent')
 <!--banner-->
 @section('content')
 <div class="banner">

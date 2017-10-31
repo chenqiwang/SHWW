@@ -12,11 +12,9 @@ use App\Models\ProblemModel;
 use App\Models\IntegralModel;
 
 use DB;
+
 class answerController extends Controller
 {
-    /**
-     *  
-     */
      /* Display a listing of the resource.
      *  
      * @return \Illuminate\Http\Response
@@ -36,5 +34,6 @@ class answerController extends Controller
         ->select('tab_answer.content','tab_answer.revtime','tab_answer.pid','tab_answer.uid','tab_user_info.nickname','tab_user_info.photo','tab_user_info.score')->get();
         
         return view('home.answer' ,compact('user','problem','integral','answer'));
+
     }
 }

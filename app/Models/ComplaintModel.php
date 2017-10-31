@@ -11,4 +11,8 @@ class ComplaintModel extends Model
 
 
     public $timestamps = false;
+
+    public function name(){
+    	return $this->hasOne('App\Models\User_infoModel', 'id', 'uid');
+    }
 }

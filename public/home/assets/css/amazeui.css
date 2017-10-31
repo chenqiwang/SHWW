@@ -3271,6 +3271,8 @@ fieldset[disabled] .am-checkbox-inline {
     float: right;
     margin-right: 10px;
     line-height: 50px;
+    height:70px;
+    width:130px;
   }
 }
 @media only screen and (max-width: 640px) {

@@ -15,7 +15,6 @@
                                                     <br>首次登录可获：金币+20，经验+20</div>
 
                                     </div>
-                                
                                     <div class="grid clearfix">
                                         <!-- 填空回答，安仔提示 -->
                                         <div class="article " id="js-detail">
@@ -46,6 +45,7 @@
                                                     </div>
                                                     <input type="hidden" value="imp-手机网页-14" class="js-wenda-src-moniter">
                                                 </div>
+
                                                 <div class="bd">
                                                     <div class="mod-added-qa js-added-area" style="">
                                                         <ul></ul>
@@ -64,6 +64,7 @@
                                                                 
                                                             </div>
 
+
                                                             <div class="editor-opt">
                                                                 <label class="anonymous">
                                                                     <input name="is_hide" type="checkbox" value="1">&nbsp;
@@ -75,16 +76,16 @@
                                                                         <button type="button" id="submit" class="js-added-submit" text="详情页回答输入框—“提交回答">提交回答</button></span>
                                                                     <div class="btn-loading js-submiting"></div>
                                                                 </div>
+
                                                             </div>
                                                         </form>
                                                     </div>
                                                 </div>
                                             </div>
-                                            
+
                                             <div class="mod-other-ans clearfix" id="hoa">
                                                 <div class="answers">
                                                     <div class="hd">
-
                                                         <h2>全部回答</h2>
                                                            
                                                     </div>
@@ -184,7 +185,6 @@
                                                 </ul>
                                                 <h4>分享到：</h4></div>
                                         </div>
-                                    
                                         </div>
                                     </div> 
                                     <div id="js-aside" class="aside" style="float:right">
@@ -192,7 +192,7 @@
                                     
                                 </div>
 
-                            </div> 
+                            </div>
                                
                         <script src="{{ asset('home1/js/1141.js') }}"></script>
                         <script src="{{ asset('home1/js/jquery,require,qw.core.js') }}"></script>
