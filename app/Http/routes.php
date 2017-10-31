@@ -40,9 +40,6 @@ Route::group(['prefix' => 'ngavig'] ,function(){
 //后台管理操作
 Route::group(['prefix' => 'admin','middleware' => 'isLogin'], function () {
 	//显示后台首页
-	/*Route::get('/index', function (){
-	    return view('admin.index');
-    });*/
 	Route::get('/index', 'admin\IndexController@index');
 	//后台用户管理操作
 	Route::resource('user', 'admin\UserController');
@@ -50,9 +47,22 @@ Route::group(['prefix' => 'admin','middleware' => 'isLogin'], function () {
     Route::resource('ad', 'admin\AdverController');
     // 意见管理操作
     Route::resource('comp', 'admin\CompController');
+
+    //问题详情路由
+    Route::resource('recycling','admin\RecyclingController');
+    
+    //问题内容路由
+    Route::resource('content','admin\ContentController');
+    
+    // 热门问题
+    Route::resource('Hotspot','admin\HotspotController');
+    
+    //用户收藏
+    Route::resource('collect','admin\CollectController');
 });
 
 //后台登录/退出操作
 Route::get('admin/login', 'admin\LoginController@index');
 Route::get('admin/dologin', 'admin\LoginController@doLogin');
 Route::get('admin/loginOut', 'admin\LoginController@loginOut');
+

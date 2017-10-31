@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>山海问问-@yield('title')</title>
+    <title>山海问问</title>
     <meta name="description" content="这是一个 index 页面">
     <meta name="keywords" content="index">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,18 +13,18 @@
     <link rel="icon" type="image/png" href="{{ asset('admin/i/favicon.png') }}">
     <link rel="apple-touch-icon-precomposed" href="{{ asset('/i/app-icon72x72@2x.png') }}">
     <meta name="apple-mobile-web-app-title" content="Amaze UI" />
-
     <script src="{{ asset('admin/js/echarts.min.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('admin/css/amazeui.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('admin/css/amazeui.datatables.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('admin/css/app.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/css/bootstrap.min.css') }}">
-    <link href="{{ asset('admin/css/animate.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('admin/css/font-awesome.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('admin/css/form.css') }}" rel="stylesheet">
-    <script src="{{ asset('admin/js/jquery.min.js') }}"></script>
+    <!-- 引入CSS样式 -->
+    <link href="{{ asset('admin/css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('admin/css/animate.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('admin/css/font-awesome.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('admin/css/form.css') }}" rel="stylesheet">
+       
 
-    
+    <script src="{{ asset('admin/js/jquery.min.js') }}"></script>
 
 </head>
 
@@ -38,29 +38,18 @@
                 <a href="javascript:;"><img src="{{ asset('admin/img/logo.png') }}" alt=""></a>
             </div>
             <!-- 右侧内容 -->
-            <div class="tpl-header-fluid">
-                <!-- 侧边切换 -->
-                <div class="am-fl tpl-header-switch-button am-icon-list">
-                    <span>
-
-                </span>
-                </div>
+           
                 <!-- 搜索 -->
-                <div class="am-fl tpl-header-search">
-                    <form class="tpl-header-search-form" action="javascript:;">
-                        <button class="tpl-header-search-btn am-icon-search"></button>
-                        <input class="tpl-header-search-box" type="text" placeholder="搜索内容...">
-                    </form>
-                </div>
+                    
                 <!-- 其它功能-->
                 <div class="am-fr tpl-header-navbar">
                     <ul>
                         <!-- 欢迎语 -->
                         <li class="am-text-sm tpl-header-navbar-welcome">
-                            <a href="javascript:;">欢迎你, <span>管理员</span> </a>
+                            <a href="javascript:;">欢迎你, <span>Amaze UI</span> </a>                                      
                         <!-- 退出 -->
                         <li class="am-text-sm">
-                            <a href="{{ URL('admin/loginOut') }}">
+                            <a href="javascript:;">
                                 <span class="am-icon-sign-out"></span> 退出
                             </a>
                         </li>
@@ -69,7 +58,7 @@
             </div>
 
         </header>
-        <!-- 风格切换 -->
+        <!-- 风格切换 -->   
         <div class="tpl-skiner">
             <div class="tpl-skiner-toggle am-icon-cog">
             </div>
@@ -93,7 +82,7 @@
                     </div>
                     <span class="user-panel-logged-in-text">
               <i class="am-icon-circle-o am-text-success tpl-user-panel-status-icon"></i>
-              管理员
+              禁言小张
           </span>
                     <a href="javascript:;" class="tpl-user-panel-action-link"> <span class="am-icon-pencil"></span> 账号设置</a>
                 </div>
@@ -102,19 +91,18 @@
             <!-- 菜单 -->
             <ul class="sidebar-nav">
                 <li class="sidebar-nav-link">
-                    <a href="{{ URL('admin/index') }}" class="active">
+                    <a href="index.html" class="active">
                         <i class="am-icon-home sidebar-nav-link-logo"></i> 首页
                     </a>
                 </li>
                 <li class="sidebar-nav-link">
                     <a href="javascript:;" class="sidebar-nav-sub-title">
-                        <i class="am-icon-table sidebar-nav-link-logo"></i> 
-                            用户管理
+                        <i class="am-icon-table sidebar-nav-link-logo"></i> 用户管理
                         <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico"></span>
                     </a>
                     <ul class="sidebar-nav sidebar-nav-sub">
                         <li class="sidebar-nav-link">
-                            <a href="{{ URL('admin/user') }}">
+                            <a href="table-list.html">
                                 <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 用户列表
                             </a>
                         </li>
@@ -127,11 +115,21 @@
                     </a>
                     <ul class="sidebar-nav sidebar-nav-sub">
                         <li class="sidebar-nav-link">
-                            <a href="{{ URL('admin/ad') }}">
+                            <a href="table-list.html">
                                 <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 广告列表
                             </a>
-                            <a href="{{ URL('admin/ad/create') }}">
-                                <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 添加广告
+                        </li>
+                    </ul>
+                </li>
+                <li class="sidebar-nav-link">
+                    <a href="javascript:;" class="sidebar-nav-sub-title">
+                        <i class="am-icon-table sidebar-nav-link-logo"></i> 标签管理
+                        <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico"></span>
+                    </a>
+                    <ul class="sidebar-nav sidebar-nav-sub">
+                        <li class="sidebar-nav-link">
+                            <a href="table-list.html">
+                                <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 标签列表
                             </a>
                         </li>
                     </ul>
@@ -146,14 +144,27 @@
                             <a href="{{ URL('admin/tabulation') }}">
                                 <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 问题列表
                             </a>
-                            <a href="{{ URL('admin/recycling') }}">
+                             <a href="{{ URL('admin/recycling') }}">
                                 <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 回收站
                             </a>
-                            <a href="{{ URL('admin/Hotspot') }}">
+                             <a href="{{ URL('admin/Hotspot') }}">
                                 <span class="am-icon-angle-right sidebar-nav-link-logo"></span>热门问题(问题数)
                             </a>
-                            <a href="{{ URL('admin/collect') }}">
+                             <a href="{{ URL('admin/collect') }}">
                                 <span class="am-icon-angle-right sidebar-nav-link-logo"></span>用户收藏
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="sidebar-nav-link">
+                    <a href="javascript:;" class="sidebar-nav-sub-title">
+                        <i class="am-icon-table sidebar-nav-link-logo"></i> 日志管理
+                        <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico"></span>
+                    </a>
+                    <ul class="sidebar-nav sidebar-nav-sub">
+                        <li class="sidebar-nav-link">
+                            <a href="table-list.html">
+                                <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 日志列表
                             </a>
                         </li>
                     </ul>
@@ -165,7 +176,7 @@
                     </a>
                     <ul class="sidebar-nav sidebar-nav-sub">
                         <li class="sidebar-nav-link">
-                            <a href="{{ URL('admin/comp') }}">
+                            <a href="table-list.html">
                                 <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 意见列表
                             </a>
                         </li>
@@ -176,22 +187,12 @@
 
 
         <!-- 内容区域 -->
-        <div id="content" class="tpl-content-wrapper">
+        <div class="tpl-content-wrapper">
             @yield('content')
         </div>
         
     </div>
     </div>
-    <script>
-        function doDel(id)
-        {
-            if(confirm('你确定要删除吗？')){
-                var form = document.myform;
-                form.action = 'comp/'+id;
-                form.submit();
-            }
-        }
-    </script>
     <script src="{{ asset('admin/js/amazeui.min.js') }}"></script>
     <script src="{{ asset('admin/js/amazeui.datatables.min.js') }}"></script>
     <script src="{{ asset('admin/js/dataTables.responsive.min.js') }}"></script>

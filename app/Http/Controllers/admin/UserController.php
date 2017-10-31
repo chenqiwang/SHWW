@@ -40,6 +40,7 @@ class UserController extends Controller
         }
         $list = $ob->paginate(1);
         return view('admin.user.index', ['list' => $list, 'where' => $where]);
+
     }
 
     /**
@@ -51,6 +52,7 @@ class UserController extends Controller
     {
         //
         return view('admin.user.add');
+
     }
 
     /**
@@ -72,7 +74,6 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
         $list = User_infoModel::find($id);
         $phone = $list->phone;
         return view('admin.user.info', compact('list', 'phone'));
@@ -86,10 +87,10 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
         $list = User_infoModel::find($id);
         $phone = $list->phone;
         return view('admin.user.update', compact('list', 'phone'));
+
     }
 
     /**
@@ -101,7 +102,6 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
         $info = $request->except('_token','_method');
         
         \DB::beginTransaction();
@@ -135,18 +135,5 @@ class UserController extends Controller
             \DB::rollBack();
             return redirect('admin/user')->with('msg', '修改失败！');
         }
-
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-        
     }
 }
