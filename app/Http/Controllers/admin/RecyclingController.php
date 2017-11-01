@@ -4,7 +4,6 @@ namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use DB;
-
 use App\Http\Requests;
 use App\Models\ProblemModel;
 use App\Http\Controllers\Controller;
@@ -26,7 +25,7 @@ class RecyclingController extends Controller
                 ->join('tab_user_info','tab_answer.id','=','tab_user_info.id')
                  ->select('tab_problem.*','tab_answer.*','tab_user_info.*')
                  ->where('tab_problem.status','=',0)
-                   ->paginate(20);
+                   ->paginate(5);
        return view('admin.question.recyling',compact('list'));
     }
 

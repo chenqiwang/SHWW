@@ -18,8 +18,12 @@ class HotspotController extends Controller
     public function index()
     {           
         //
-        
-       return view('admin.question.hotspot');
+        $res= DB::table('tab_answernum')
+            ->join('tab_problem','tab_answernum.pid','=','tab_problem.id')
+            ->select('tab_answernum.*','tab_problem.*')
+            ->Paginate(1);
+           
+       return view('admin.question.hotspot',compact('res'));
     }
    
 

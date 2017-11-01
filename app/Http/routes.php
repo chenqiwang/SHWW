@@ -15,18 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::group(['prefix' => 'admin'],function(){
-  /* Route::get('/index',function(){
-   		return view('admin.index');
-	});*/
 //后台路由	
-   Route::get('index','admin\QuestionController@index');
+   Route::get('index','admin\HomeController@index');
 
 //问题列表路由
-   Route::get('tabulation', 'admin\UserController@index');
-
-//连接数据库路由
-   Route::get('user','admin\UserController@index');
-
+   Route::get('tabulation', 'admin\QuestionController@index');
+   
 //问题详情路由
    Route::resource('recycling','admin\RecyclingController');
 

@@ -1,16 +1,23 @@
 @extends('parent.index')
-@section('content')
-<div class="widget-body  am-fr">
-    <div class="am-u-sm-12 am-u-md-12 am-u-lg-3">
-    </div>
-    <div class="">
 
+@section('content')
+<div class="am-u-sm-12">
         <table width="100%" class="am-table am-table-compact am-table-striped tpl-table-black " id="example-r">
             <thead>
-<!-- 遍历数据 -->
-
-        </thead>      
-     </table>
-    </div>
-</div>
+                <tr>
+                    <th>问题名称</th>
+                    <th>回答数</th>
+                    <th>点赞数</th>
+                </tr>
+            </thead>
+            @foreach ($res as $q)
+                        
+                <tr class="gradeX">
+                            <td>{{ $q->name }}</td>
+                            <td>{{ $q->count }}</td>
+                            <td>{{ $q->thumb }}</td>
+                        </tr>
+                  @endforeach 
+ </div>
+              
 @endsection

@@ -22,12 +22,10 @@ class ContentController extends Controller
          $list = DB::table('tab_problem')
 
                     ->join('tab_answer','tab_problem.id','=','tab_answer.pid')
-                    ->select('tab_problem.*','tab_answer.*')
-
-                    // ->simplePaginate(1);
-
+                    ->join('tab_user_info','tab_answer.id','=','tab_user_info.id')
+                    ->select('tab_problem.*','tab_answer.*','tab_user_info.*')
                     ->get();
-                  
+                  dd($list);
         return view('admin.question.content',compact('list'));
     }
         

@@ -17,7 +17,7 @@ class HomeController extends Controller
     public function index()
     {
         //后台首页
-        return view('parent.index');
+         return view('parent/index');
         
     }
 

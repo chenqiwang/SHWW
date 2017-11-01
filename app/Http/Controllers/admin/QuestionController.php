@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\admin;
-
+use DB;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -15,7 +15,14 @@ class QuestionController extends Controller{
      */
     public function index()
     {
-        return view('parent/index');
+        //问题列表
+         $list = DB::table('tab_problem')
+        ->join('tab_user_info',function($join){
+             $join->on('tab_problem.id','=','tab_user_info.rid')
+        ->where('tab_problem.status','=',1); 
+        })
+        ->paginate(5);
+        return view('admin.question.index',compact('list'));
     }
 
     /**
@@ -25,8 +32,7 @@ class QuestionController extends Controller{
      */
     public function create()
     {
-        //
-         
+        //    
     }
 
     /**
@@ -49,6 +55,7 @@ class QuestionController extends Controller{
     public function show($id)
     {
         //
+        
     }
 
     /**

@@ -8,6 +8,8 @@
                     </tr>
                     <li class="sidebar-nav-link">
         <p href="javascript:;" class="sidebar-nav-sub-title">         
+              作者：
+              |
                {{ $v->name }}
             <span class="am-icon-chevron-down  am-margin-right-sm sidebar-nav-sub-ico"></span>
         </p>
@@ -16,7 +18,9 @@
             <p href="javascript:;">
                     <span class="sidebar-nav-link-logo">
                         内容: {{ $v->content }}
+
                     </span>
+                    <p class="sidebar-nav-sub-title">回答者：</p> 
                 </p>
                    <li class="am-fr sidebar-nav-link">
                           发表时间: {{ $v->revtime }}
