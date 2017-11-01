@@ -23,11 +23,10 @@
     <!--Win8 or 10 -->
     <meta name="msapplication-TileImage" content="{{ asset('images/i/app.png') }}">
     <meta name="msapplication-TileColor" content="#e1652f">
-
+    
     <link rel="icon" type="image/png" href="{{ asset('images/i/favicon.png') }}">
     <link rel="stylesheet" href="{{ asset('home/assets/css/amazeui.css') }}">
     <link rel="stylesheet" href="{{ asset('home/css/public.css') }}">
-
     <!--[if (gte IE 9)|!(IE)]><!-->
     <script src="{{ asset('home/assets/js/jquery.min.js') }}"></script>
     <!--<![endif]-->
@@ -38,6 +37,7 @@
     <![endif]-->
     <script src="{{ asset('home/assets/js/amazeui.min.js') }}"></script>
     <script src="{{ asset('home/js/public.js') }}"></script>
+
 </head>
 <body>
 
@@ -84,7 +84,7 @@
                     <a style="font-size: 16px;margin-left: 8px;">{{ session('user') }}</a>
                     <a style="font-size: 12px;color: white;margin-left: 20px;">Lv:最强王者</a>
                     <button class="am-btn am-btn-danger am-btn-xs am-radius" style="margin-left: 5px;" ><i class="am-icon-cog"></i>个人中心</button>
-                    <button class="am-btn am-btn-danger am-btn-xs am-radius" >注销</button>
+                    <a href="{{ URL('/doLogOut') }}"><button  class="am-btn am-btn-danger am-btn-xs am-radius" >注销</button></a>
                 </div>
             @else
             <div class="am-topbar-right">

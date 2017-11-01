@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\admin;
-
+use DB;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -13,32 +13,30 @@ class QuestionController extends Controller{
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('parent/index');
+        $ob = DB::table('tab_problem');
+        $where = [];
+        if ($request->has('search')) {
+            $name = $request->input('search');
+            $where['search'] = $name;
+            $ob->select('tab_problem.*','tab_user_info.nickname as uname','tab_label.name as lname')->join('tab_user_info',function($join){
+                $join->on('tab_problem.uid','=','tab_user_info.id');
+            })->join('tab_label',function($join){
+                $join->on('tab_problem.lid','=','tab_label.id');
+            })->where('tab_problem.status', 1)
+              ->where('tab_problem.name', 'like','%'.$name.'%');
+        } else {
+            $ob = DB::table('tab_problem')->select('tab_problem.*','tab_user_info.nickname as uname','tab_label.name as lname')->join('tab_user_info',function($join){
+                $join->on('tab_problem.uid','=','tab_user_info.id');
+            })->join('tab_label',function($join){
+                $join->on('tab_problem.lid','=','tab_label.id');
+            })->where('tab_problem.status', 1);
+        }
+        $list = $ob->paginate(5);
+        return view('admin.question.index',['list' => $list, 'where' => $where]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-         
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
     /**
      * Display the specified resource.
@@ -49,39 +47,7 @@ class QuestionController extends Controller{
     public function show($id)
     {
         //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $user = DB::table('tab_answer')->paginate(2);
+        return view('admin.question.particulars',compact('user'));
     }
 }

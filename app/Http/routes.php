@@ -21,7 +21,7 @@ Route::post('/login', 'home\LoginController@doLogin');
 Route::get('/register', 'home\LoginController@register');
 Route::get('/getCode','home\LoginController@getCode');
 Route::post('/register', 'home\LoginController@doRegister');
-
+Route::get('/doLogOut','home\LoginController@dologOut');
 
 Route::group(['prefix' => 'ngavig'] ,function(){
 
@@ -47,16 +47,16 @@ Route::group(['prefix' => 'admin','middleware' => 'isLogin'], function () {
     Route::resource('ad', 'admin\AdverController');
     // 意见管理操作
     Route::resource('comp', 'admin\CompController');
-
+    // 公告管理操作
+    Route::resource('notice', 'admin\NoticeController');
+     //问题列表
+     Route::get('tabulation', 'admin\QuestionController@index');
     //问题详情路由
     Route::resource('recycling','admin\RecyclingController');
-    
     //问题内容路由
     Route::resource('content','admin\ContentController');
-    
     // 热门问题
     Route::resource('Hotspot','admin\HotspotController');
-    
     //用户收藏
     Route::resource('collect','admin\CollectController');
 });

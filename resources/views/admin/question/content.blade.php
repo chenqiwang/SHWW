@@ -1,4 +1,5 @@
 @extends('admin.parent.index')
+@section('title', '详细信息')
 @section('content')
 <!-- 遍历数据 -->
 @foreach ($list as $v)

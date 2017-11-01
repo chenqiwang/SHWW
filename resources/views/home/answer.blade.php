@@ -1,11 +1,9 @@
 @extends('home.public.parent')
-
+@include('vendor.UEditor.head')  
 @section('content')
                         <link rel="stylesheet" href="{{ asset('home1/css/base_html_new.combo.css') }}">
-                        <!--[if IE 6]>
-                            <script src="js/fixie6.120320.js"></script>
-                        <![endif]-->
                         <link rel="stylesheet" href="{{ asset('home1/css/detail.combo.css') }}">
+                     
                                 <div id="bd"  style="margin-top:16px;">
                                      <div class="mod-novice-task" id="js-mod-novice-task" style="float:right">
                                                 <div class="title">
@@ -13,6 +11,7 @@
                                                     </i>山海问答</div>
                                                 <div class="msg">登录一下，也成为分享知识的一员
                                                     <br>首次登录可获：金币+20，经验+20</div>
+                                                <a href="{{ url('login')}}">点击我去登录哟</a>
 
                                     </div>
                                     <div class="grid clearfix">
@@ -53,36 +52,26 @@
                                                 </div>
                                             </div>
                                             <div class="mod-q-ans js-form ">
-                                                <div class="top-line"></div>
-                                                <!-- <a href="http://jifen.so.com" target="_blank" text='【详情页-商城文字链】点击' class="activity-link">答题中大奖啦，百万豪礼抱回家！</a> -->
-                                                <div class="bd clearfix">
-                                                    <span class="pic">
-                                                        <img text="userinfo-pic" src=" asset('home1/picture/t0168b1bfdd84ea2fc8.png') }}"></span>
-                                                    <div class="ans-form">
-                                                        <form id="editform" action="/submit/answer" method="post" type="0">
-                                                            <div class="umeditor-wrap js-umeditor-wrap" style="width:565px;min-height:226px;">
-                                                                
-                                                            </div>
+                                                <form>
+                                                    <div>
+                                                        <script id="editor" type="text/plain" style="width:100%;height:200px;">
 
-
-                                                            <div class="editor-opt">
-                                                                <label class="anonymous">
-                                                                    <input name="is_hide" type="checkbox" value="1">&nbsp;
-                                                                    <span class="ver-mid">匿名</span></label>
-                                                            </div>
-                                                            <div class="extra clearfix">
-                                                                <div class="submit clearfix">
-                                                                    <span class="btn btn-2">
-                                                                        <button type="button" id="submit" class="js-added-submit" text="详情页回答输入框—“提交回答">提交回答</button></span>
-                                                                    <div class="btn-loading js-submiting"></div>
-                                                                </div>
-
-                                                            </div>
-                                                        </form>
+                                                        </script>
                                                     </div>
-                                                </div>
+                                                    <script type="text/javascript">
+                                                        var ue = UE.getEditor('editor', {
+                                                            toolbars: [
+                                                                ['fullscreen', 'source', 'undo', 'redo', 'bold']
+                                                            ],
+                                                            autoHeightEnabled: true,
+                                                            autoFloatEnabled: true,
+                                                            elementPathEnabled: false
+                                                        });
+                                                        ue.execCommand('serverparam', '_token', '{{ csrf_token() }}');  
+                                                    </script>
+                                                    <button type="button" onclick="" style="float:right;width:60px;height:30px;" >提交</button>
+                                                </form>
                                             </div>
-
                                             <div class="mod-other-ans clearfix" id="hoa">
                                                 <div class="answers">
                                                     <div class="hd">
@@ -192,39 +181,5 @@
                                     
                                 </div>
 
-                            </div>
-                               
-                        <script src="{{ asset('home1/js/1141.js') }}"></script>
-                        <script src="{{ asset('home1/js/jquery,require,qw.core.js') }}"></script>
-                        <script src="{{ asset('home1/js/5.0.3.js') }}"></script>
-                        <script>window.namespace = function(e, t) {
-                                var n = e.split("."),
-                                r = 0,
-                                i;
-                                t = t || window;
-                                for (; i = n[r++];) t[i] || (t[i] = {}),
-                                t = t[i];
-                                return t
-                            }</script>
-                        <script src="{{ asset('home1/js/underscore-1.8.3.js') }}"></script>
-                        <script src="{{ asset('home1/js/monitor-1.2.3.js') }}"></script>
-                        <script src="{{ asset('home1/js/monitor_analytic.js') }}"></script>
-                        <script src="{{ asset('home1/js/performance.js') }}"></script>
-                        <script src="{{ asset('home1/js/base_html.combo.js') }}"></script>
-                        <!--[if IE 6]>
-                            <script>DD_belatedPNG.fix(".close")</script>
-                        <![endif]-->
-                        <!--[if IE 6]>
-                            <script>DD_belatedPNG.fix(".close,.pro-num,.green-bar,.pro-bar,.success,.invite,.analyze")</script>
-                        <![endif]-->
-                        <script src="{{ asset('home1/js/22d4f3fe413740e5ad34da0a390077a9.js') }}"></script>
-                        <!--[if IE 6]>
-                            <script>DD_belatedPNG.fix(".mod-music-add-toolbar span")</script>
-                        <![endif]-->
-                        <script src="{{ asset('home1/js/detail.combo.js') }}"></script>
-                        <script src="{{ asset('home1/js/61bc8925b74cf513.js') }}"></script>
-                        <script>SoLog.init({
-                                pro: 'wenda',
-                                pid: 'detail'
-                            }).log();</script>
+                            </div>                        
 @endsection

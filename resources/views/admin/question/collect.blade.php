@@ -1,4 +1,5 @@
 @extends('admin.parent.index')
+@section('title', '收藏')
 @section('content')
 
 <table width="100%" class="am-table am-table-compact am-table-striped tpl-table-black ">

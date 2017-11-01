@@ -131,4 +131,10 @@ class LoginController extends Controller
             }
         }
     }
+
+    public function dologOut(Request $request)
+    {
+        $request->session()->pull('user');
+        return redirect('/');
+    }
 }
