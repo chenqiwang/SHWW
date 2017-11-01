@@ -36,6 +36,7 @@
 </div>
 <script src="{{ asset('home/assets/js/jquery.min.js') }}"></script>
 <script src="{{ asset('home/login/layer/layer.js') }}"></script>
+
 </body>
 <script type="text/javascript">
 	function checkPhone()

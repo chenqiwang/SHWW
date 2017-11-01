@@ -49,6 +49,7 @@ Route::group(['prefix' => 'admin','middleware' => 'isLogin'], function () {
     Route::resource('comp', 'admin\CompController');
     // 公告管理操作
     Route::resource('notice', 'admin\NoticeController');
+    Route::post('doNotice', 'admin\NoticeController@delNotice');
      //问题列表
      Route::get('tabulation', 'admin\QuestionController@index');
     //问题详情路由

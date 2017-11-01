@@ -33,26 +33,13 @@
             <ul class="padding-none am-gallery am-avg-sm-2 am-avg-md-4 am-avg-lg-2 am-gallery-overlay" data-am-gallery="{ pureview: true }" >
                            <div class="three-parts-layout-content announcement-content line">
                                 <ul class="announcement-list">
-                                <li class="announcement-list-item">
-                                <i class="announcement-disc"></i>
-                                <a target="_blank" class="announcement-link" href="https://zhidao.baidu.com/culture/index" title="知道非遗聚合页上线啦！">知道非遗聚合页上线啦！</a>
-                                <i class="i-new announcement-new"></i></li>
-                                <li class="announcement-list-item">
-                                <i class="announcement-disc"></i>
-                                <a target="_blank" class="announcement-link" href="https://zhidao.baidu.com/liuyan" title="【真相问答机】，揭穿流言！">【真相问答机】，揭穿流言！</a>
-                                </li>
-                                <li class="announcement-list-item">
-                                <i class="announcement-disc"></i>
-                                <a target="_blank" class="announcement-link" href="https://zhidao.baidu.com/daily/view?id=11954?from=home" title="【知道日报】重金邀请知识大咖入驻">【知道日报】重金邀请知识大...</a>
-                                </li>
-                                <li class="announcement-list-item">
-                                <i class="announcement-disc"></i>
-                                <a target="_blank" class="announcement-link" href="http://www.baidu.com/search/zhidao_help.html" title="帮助手册：如何使用知道">帮助手册：如何使用知道</a>
-                                </li>
-                                <li class="announcement-list-item">
-                                <i class="announcement-disc"></i>
-                                <a target="_blank" class="announcement-link" href="http://zhidao.baidu.com/zuoyebang/" title="新品上线：作业帮APP发布啦">新品上线：作业帮APP发布啦</a>
-                                </li>
+                                    @foreach ($notice as $not)
+                                    <li class="announcement-list-item">
+                                        <i class="announcement-disc"></i>
+                                        <a target="_blank" href="javascript:void(0);" onclick="doNotInfo('{{ $not->type }}', '{{ $not->content }}')" class="announcement-link"  title="这些都是公告哦">【{{ $not->type }}】{{ $not->content }}</a>
+                                        <i class="i-new announcement-new"></i>
+                                    </li>
+                                    @endforeach
                                 </ul>
                                 </div> 
             </ul>
@@ -714,5 +701,22 @@
         <i class="am-gotop-icon am-icon-chevron-up"></i>
     </a>
 </div>
-
+<script type="text/javascript">
+    function doNotInfo(type, content)
+    {
+        //示范一个公告层
+        layer.open({
+          type: 1
+          ,title: false //不显示标题栏
+          ,closeBtn: false
+          ,area: '300px;'
+          ,shade: 0.8
+          ,resize: false
+          ,btn: '我知道了'
+          ,btnAlign: 'c'
+          ,anim:0
+          ,content: '<div style="padding: 50px; line-height: 22px; background-color: #ff9900; color: #fff; font-weight: 300;"><h2>类型：'+type+'</h2><p>公告内容</p>'+content+'</div>'
+        });
+    }
+</script>
 @endsection

@@ -27,8 +27,10 @@
     <link rel="icon" type="image/png" href="{{ asset('images/i/favicon.png') }}">
     <link rel="stylesheet" href="{{ asset('home/assets/css/amazeui.css') }}">
     <link rel="stylesheet" href="{{ asset('home/css/public.css') }}">
+    <link rel="stylesheet" href="{{ asset('home/login/layer/mobile/need/layer.css') }}">
     <!--[if (gte IE 9)|!(IE)]><!-->
     <script src="{{ asset('home/assets/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('home/login/layer/layer.js') }}"></script>
     <!--<![endif]-->
     <!--[if lte IE 8 ]>
     <script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
@@ -138,6 +140,7 @@
         </ul>
         </div>
     </div>
+    
 </footer>
 </body>
 </html>

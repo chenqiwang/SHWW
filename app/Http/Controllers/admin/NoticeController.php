@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Models\NoticeModel;
 use App\Http\Controllers\Controller;
 use DB;
 
@@ -27,9 +28,10 @@ class NoticeController extends Controller
             $content = $request->input('search');
             $where['search'] = $content;
             //给查询语句添加上where条件
-            $ob->where('content', $content);
+            $ob->where('content', 'like','%'.$content.'%')
+                ->orderBy('id', 'desc');
         }
-        $list = $ob->paginate(3);
+        $list = $ob->orderBy('id', 'desc')->paginate(3);
         return view ('admin.notice.index', ['list' => $list, 'where' => $where]);
     }
 
@@ -41,6 +43,7 @@ class NoticeController extends Controller
     public function create()
     {
         //
+        return view('admin.notice.add');
     }
 
     /**
@@ -52,6 +55,18 @@ class NoticeController extends Controller
     public function store(Request $request)
     {
         //
+        $list = $request->except('_token');
+        $type = $list['type'];
+        $content = $list['content'];
+        $notice = new NoticeModel;
+        $notice->type = $type;
+        $notice->content = $content;
+        if ($notice->save()) {
+            return redirect('admin/notice')->with('msg', '添加成功');
+        }else{
+            //回到上一页
+            return back()->with('msg', '输入有误，请检查后重新提交！');
+        }
     }
 
     /**
@@ -94,8 +109,12 @@ class NoticeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delNotice(Request $request)
     {
         //
+        $info = $request->except('_token');
+        $id = $info['id'];
+        $delete = NoticeModel::destroy($id);
+        return $delete;
     }
 }

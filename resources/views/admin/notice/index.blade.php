@@ -14,11 +14,20 @@
                                     alert("{{ session('msg') }}");
                                 </script>
                             @endif
-                            <div class="widget-body  am-fr">
 
+                            <div class="widget-body  am-fr">
                                 <div class="am-u-sm-12 am-u-md-6 am-u-lg-6">
+                                    <div class="am-form-group">
+                                        <div class="am-btn-toolbar">
+                                            <div class="am-btn-group am-btn-group-xs">
+                                                <form action="{{ URL('admin/notice/create') }}" method="get">
+                                                    <button type="submit" class="am-btn am-btn-default am-btn-success"><span class="am-icon-plus"></span> 新增</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <form action="{{ URL('admin/notice') }}">
+                                <form action="{{ URL('admin/notice') }}">                                       
                                     <div class="am-u-sm-12 am-u-md-12 am-u-lg-3">
                                         <div class="am-input-group am-input-group-sm tpl-form-border-form cl-p">
                                             <input type="text" name="search" placeholder="请输入要查询的内容" class="am-form-field ">
@@ -28,13 +37,16 @@
                                         </div>
                                     </div>
                                 </form>
+
+                                </div>
+                                
                                 <div class="am-u-sm-12">
                                     <table width="100%" class="am-table am-table-compact am-table-striped tpl-table-black ">
                                         <thead>
                                             <tr>
                                                 <th>id</th>
                                                 <th>公告类型</th>
-                                                <th>公告类容</th>
+                                                <th>公告内容</th>
                                                 <th>操作</th>
                                             </tr>
                                         </thead>
@@ -46,7 +58,7 @@
                                                 <td class="am-text-middle">{{ $l->content }}</td>
                                                 <td class="am-text-middle">
                                                     <div class="tpl-table-black-operation">
-                                                        <a href="javascript:doNotDel({{ $l->id }})" class="tpl-table-black-operation-del">
+                                                        <a href="javascript:doNotDel({{ $l->id }});" class="tpl-table-black-operation-del">
                                                             <i class="am-icon-trash"></i> 删除
                                                         </a>
                                                     </div>
@@ -68,7 +80,14 @@
             <script type="text/javascript">
                 function doNotDel(id)
                 {
-
+                    $.post('{{ asset('admin/doNotice') }}',{'id':id,'_token':'{{csrf_token()}}'},function(data){
+                        if (data) {
+                            alert('删除成功');
+                            window.location = "notice";
+                        } else{
+                            alert('删除失败');
+                        };
+                    });
                 }
             </script>
 @endsection
