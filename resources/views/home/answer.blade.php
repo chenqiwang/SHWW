@@ -10,7 +10,7 @@
                                                     <i class="icon icon-search">
                                                     </i>山海问答</div>
                                                 <div class="msg">登录一下，也成为分享知识的一员
-                                                    <br>首次登录可获：金币+20，经验+20</div>
+                                                    <br>首次登录可获：经验+20</div>
                                                 <a href="{{ url('login')}}">点击我去登录哟</a>
 
                                     </div>
@@ -22,22 +22,23 @@
                                                 <div class="hd">
 
                                                     <h2 class="title js-ask-title">
-                                                        <img width="80" height="80" src="{{ asset('image/'. $user->photo) }}">{{ $problem->name }}
+                                                        <img width="80" style="float: left;" height="80" src="{{ asset('image/'. $user->photo) }}">{{ $problem->name }}
                                                     </h2>
                                                     
                                                     <div class="mod-user-label">
                                                         <div class="l-ask clearfix">
                                                             <div class="text" style="float:left;">
-                                                               <span>{{ $user->nickname }}</span>
+                                                               <span style="float: left;margin-right: 50px;">提问者：{{ $user->nickname }}</span>
+
                                                                 <span>
-                                                                    <a target="_blank" href="/u/609910038" class="ask-author  js-ordinary-card" index="609910038">
+                                                                    <a target="_blank" href="#" class="ask-author  js-ordinary-card" >
                                                                     采纳率: {{ $integral->adopt }}%
                                                                     </a>
                                                                 </span>
-                                                                <i class="line"></i><span>{{ $user->score }}积分</span>
+                                                                <i class="line"></i><span>积分：{{ $user->score }}</span>
                                                                 <!-- 分类 -->
                                                                 
-                                                                <span><?= date('Y-m-d',$problem->time) ?>发表</span>
+                                                                <span><?= date('Y-m-d m:i:s',$problem->time) ?>发表</span>
                                                                 <!-- /分类 -->
                                                         
                                                         </div>
@@ -58,17 +59,6 @@
 
                                                         </script>
                                                     </div>
-                                                    <script type="text/javascript">
-                                                        var ue = UE.getEditor('editor', {
-                                                            toolbars: [
-                                                                ['fullscreen', 'source', 'undo', 'redo', 'bold']
-                                                            ],
-                                                            autoHeightEnabled: true,
-                                                            autoFloatEnabled: true,
-                                                            elementPathEnabled: false
-                                                        });
-                                                        ue.execCommand('serverparam', '_token', '{{ csrf_token() }}');  
-                                                    </script>
                                                     <button type="button" onclick="" style="float:right;width:60px;height:30px;" >提交</button>
                                                 </form>
                                             </div>
@@ -89,7 +79,7 @@
                                                                             <a target="_blank" href="/u/148309030" class="pic  js-ordinary-card" index="148309030">
                                                                                 <img src="{{ asset('image/'.$a->photo) }}" width="41" height="41"></a>
                                                                         </div>
-                                                                        <div class="text">
+                                                                        <div     class="text">
                                                                             <div style="margin-bottom:2px;display:inline;">
                                                                                 <span>
                                                                                     <a target="_blank" href="/u/148309030" class="ask-author  js-ordinary-card" index="148309030">{{ $a->nickname }}</a></span>
@@ -112,10 +102,12 @@
                                                                             <span class="js-operate" style="visibility: hidden;">
                                                                                 <!-- <span class="line ui-line last-line"></span> -->
                                                                             </span>
-                                                                            <a href="javascript:;" class="approve js-approve" data-num="0">
-                                                                                <i>很给力</i>
-                                                                                <span>0</span>
-                                                                            </a>
+                                                                            @if( $thunbs->aid == $a->id || $thunbs->status == 0 )
+                                                                           <a href="javascript:;" id="show{{$a->id}}" onclick="dian({{ $a->id }})"><img id="thumb{{ $a->id }}" height="15" widht="15" src="{{ asset('image/give.png') }}"></a>
+                                                                           @else
+                                                                           <a href="javascript:;" id="show{{$a->id}}" onclick="dian({{ $a->id }})"><img id="thumb{{ $a->id }}" height="15" widht="15" src="{{ asset('image/give1.png') }}"></a>
+                                                                           @endif
+
                                                                         </div>
                                                                     </div>
                                                                     <div class="js-form-area add-area"></div>
@@ -134,45 +126,12 @@
                                                     <h2>相关问题</h2>
                                                 </div>
                                                 <div class="bd">
-                                                    <ul>
-                                                        <li class="clearfix">
-                                                            <a target="_blank" href="/q/1449366482499851?src=9999" class="s0" data-cid-pre="1000204">徐州市哪家
-                                                                <b>别克车</b>保养
-                                                                <b>质量</b>好
-                                                            </a>
-                                                            <span class="s1">2015.12.06</span></li>
-                                                    </ul>
+
                                                 </div>
                                             </div>
                                             <div class="mod-related_search" id="js-rel-list">
-                                                <div class="hd">
-                                                    <h2>搜索推荐</h2></div>
-                                                <div class="bd">
-                                                    <ul class="clearfix js-list-item" data-abtest="b"></ul>
-                                                </div>
+
                                             </div>
-                                            <div class="mod-share  clearfix" data-con="别克车的质量如何？">
-                                                <ul>
-                                                    <li>
-                                                        <a href="javascript:;" title="分享到QQ空间" text="详情页QQ空间分享" class="qzone"></a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;" title="分享到新浪微博" text="详情页新浪分享" class="sina"></a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;" title="分享到微信" text="详情页微信分享" class="weixin"></a>
-                                                        <div class="weixin-box">
-                                                            <div class="box-bg"></div>
-                                                            <i class="arrow"></i>
-                                                            <div class="box-inner">
-                                                                <a href="javascript:;" class="close">x</a>
-                                                                <div class="qrcode"></div>
-                                                                <span class="desc">用微信扫描二维码
-                                                                    <br>分享至好友和朋友圈</span></div>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                                <h4>分享到：</h4></div>
                                         </div>
                                         </div>
                                     </div> 
@@ -182,4 +141,53 @@
                                 </div>
 
                             </div>                        
+
+                            <script type="text/javascript">
+                                var ue = UE.getEditor('editor', {
+                                    toolbars: [
+                                        ['fullscreen', 'source', 'undo', 'redo', 'bold']
+                                    ],
+                                    autoHeightEnabled: true,
+                                    autoFloatEnabled: true,
+                                    elementPathEnabled: false
+                                });
+                                ue.execCommand('serverparam', '_token', '{{ csrf_token() }}');  
+                                    
+
+                                function hui()
+                                {
+                                    var v = ue.getContentTxt();
+                                    // alert(v);
+                                    $.post("{{ URL('/ngavig/ajax') }}", {v:v,'_token':'{{csrf_token()}}'}, function(data){
+                                        alert(data);
+                                    });
+                                    
+                                }
+
+                            </script>
+                            @if(!session('user'))
+                            <script>
+                                 function dian(id)
+                                {
+                                    alert('请先登录再点赞');
+                                }
+                            </script>
+                            @else
+                            <script>
+                                 function dian(id)
+                                {
+                                    var thumb = document.getElementById('thumb'+id);
+
+                                    $.get("{{ URL('/ngavig/dian') }}",{'id':id}, function(data){
+
+                                        if(data){
+                                            thumb.setAttribute('src', "{{ asset('image/give1.png') }}");
+                                            thumb.setAttribute('onclick', '');
+                                            thumb.setAttribute('href','');
+                                        }
+                                    });
+
+                                }    
+                            </script>
+                            @endif
 @endsection

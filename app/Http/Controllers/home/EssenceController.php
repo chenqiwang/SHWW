@@ -23,13 +23,12 @@ class essenceController extends Controller
      */
     public function index()
     {
-        //取采纳率大于50的帖子
-        $price = IntegralModel::where('adopt' ,'>', '50')->get();
-        //用户表
-        $users = User_infoModel::get();
-        //问题表
-        $problem = ProblemModel::get();
-        return view('home.essence', compact('price', 'users','problem'));
+
+         // //取采纳率大于50的帖子
+        $price = DB::table('tab_integral')
+        ->join('tab_problem', 'tab_integral.pid', '=', 'tab_problem.id')
+        ->select('tab_integral.adopt', 'tab_problem.*')->where('adopt' ,'>', '50')->get();
+        return view('home.essence', compact('price'));
 
     }
 }
