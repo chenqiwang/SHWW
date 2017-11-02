@@ -32,6 +32,7 @@
             <div class="am-list-news-bd">
                 <ul class="am-list">
                     @foreach( $problem as $p )
+                    @if( $p->status == 0 )
                     <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left" >
                         <div class="am-u-sm-5 am-list-thumb">
                         @foreach( $user as $u )
@@ -51,7 +52,7 @@
                         @endif
                         @endforeach
                     </li>
-
+                    @endif
                     @endforeach
 
                 </ul>

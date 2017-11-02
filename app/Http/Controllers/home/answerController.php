@@ -23,20 +23,22 @@ class answerController extends Controller
     {
         //tab_problem表查询
         $problem = ProblemModel::where('id',$pid)->first();
+
         //tab_user_info表查询
         $user = User_infoModel::where('id' ,$problem->uid)->first();
 
         //tab_user_info表查询
         $integral = IntegralModel::where('aid',$problem->uid)->first();
 
+        
         //tab_thumbs_up点赞表
         $thunbs = Thumbs_upModel::where('aid' ,$pid)->first();
+        
         //用tab_answer的id查询tab_user_info的字段
         $answer = DB::table('tab_answer')
         ->join('tab_user_info', 'tab_answer.uid','=', 'tab_user_info.id')
-
         ->select('tab_answer.*','tab_user_info.nickname','tab_user_info.photo','tab_user_info.score')->get();
-
+        
         return view('home.answer' ,compact('user','problem','integral','answer','thunbs'));
 
     }

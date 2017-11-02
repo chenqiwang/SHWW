@@ -37,7 +37,6 @@
                                                                 </span>
                                                                 <i class="line"></i><span>积分：{{ $user->score }}</span>
                                                                 <!-- 分类 -->
-                                                                
                                                                 <span>{{ $problem->time }}发表</span>
                                                                 <!-- /分类 -->
                                                         
@@ -76,7 +75,7 @@
                                                                             <a target="_blank" href="" class="pic js-ordinary-card">
                                                                                 <img src="{{ asset('image/'.$a->photo) }}" width="41" height="41"></a>
                                                                         </div>
-                                                                        <div class="text">
+                                                                        <div     class="text">
                                                                             <div style="margin-bottom:2px;display:inline;">
                                                                                 <span>
                                                                                     <a target="_blank" class="ask-author  js-ordinary-card" index="148309030">{{ $a->nickname }}</a></span>
@@ -98,6 +97,13 @@
                                                                         <div class="action">
                                                                             <span class="js-operate" style="visibility: hidden;">
                                                                             </span>
+
+                                                                            @if( $thunbs->aid == $a->id || $thunbs->status == 0 )
+                                                                           <a href="javascript:;" id="show{{$a->id}}" onclick="dian({{ $a->id }})"><img id="thumb{{ $a->id }}" height="15" widht="15" src="{{ asset('image/give.png') }}"></a>
+                                                                           @else
+                                                                           <a href="javascript:;" id="show{{$a->id}}" onclick="dian({{ $a->id }})"><img id="thumb{{ $a->id }}" height="15" widht="15" src="{{ asset('image/give1.png') }}"></a>
+                                                                           @endif
+
                                                                         </div>
                                                                     </div>
                                                                     <div class="js-form-area add-area"></div>
@@ -141,8 +147,7 @@
                                     autoFloatEnabled: true,
                                     elementPathEnabled: false
                                 });
-                                ue.execCommand('serverparam', '_token', '{{ csrf_token() }}');  
-
+                                ue.execCommand('serverparam', '_token', '{{ csrf_token() }}');
 
                                 function hui()
                                 {
@@ -151,7 +156,6 @@
                                     $.post("{{ URL('/ngavig/ajax') }}", {v:v,'_token':'{{csrf_token()}}'}, function(data){
                                         alert(data);
                                     });
-
                                 }
 
                             </script>
@@ -176,7 +180,6 @@
                                             thumb.setAttribute('href','');
                                         }
                                     });
-
                                 }
                             </script>
                             @endif
