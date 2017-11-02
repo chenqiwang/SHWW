@@ -32,7 +32,7 @@ Route::group(['prefix' => 'ngavig'] ,function(){
 	//导航下的全部问题
 	Route::get('/emotion/{id}', 'home\WholeController@emotion');
 	//全部问题下的提问
-	Route::get('/answer/{pid}/{uid}', 'home\answerController@index');
+	Route::get('/answer/{pid}', 'home\answerController@index');
 	//导航栏精华帖
 	Route::get('/essence', 'home\essenceController@index');
 });

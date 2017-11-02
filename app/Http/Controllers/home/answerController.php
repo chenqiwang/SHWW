@@ -10,7 +10,7 @@ use App\Models\AnswerModel;
 use App\Models\User_infoModel;
 use App\Models\ProblemModel;
 use App\Models\IntegralModel;
-
+use App\Models\Thumbs_upModel;
 use DB;
 
 class answerController extends Controller
@@ -19,21 +19,37 @@ class answerController extends Controller
      *  
      * @return \Illuminate\Http\Response
      */
-    public function index($pid,$uid)
+    public function index($pid)
     {
-        //tab_user_info表查询
-        $user = User_infoModel::where('id' ,$uid)->first();
         //tab_problem表查询
         $problem = ProblemModel::where('id',$pid)->first();
         //tab_user_info表查询
-        $integral = IntegralModel::where('aid',$uid)->first();
- 
+        $user = User_infoModel::where('id' ,$problem->uid)->first();
+
+        //tab_user_info表查询
+        $integral = IntegralModel::where('aid',$problem->uid)->first();
+
+        //tab_thumbs_up点赞表
+        $thunbs = Thumbs_upModel::where('aid' ,$pid)->first();
         //用tab_answer的id查询tab_user_info的字段
         $answer = DB::table('tab_answer')
         ->join('tab_user_info', 'tab_answer.uid','=', 'tab_user_info.id')
-        ->select('tab_answer.content','tab_answer.revtime','tab_answer.pid','tab_answer.uid','tab_user_info.nickname','tab_user_info.photo','tab_user_info.score')->get();
-        
-        return view('home.answer' ,compact('user','problem','integral','answer'));
 
+        ->select('tab_answer.*','tab_user_info.nickname','tab_user_info.photo','tab_user_info.score')->get();
+
+        return view('home.answer' ,compact('user','problem','integral','answer','thunbs'));
+
+    }
+    public function submit(Request $request)
+    {
+        
+    }
+    public function dian(Request $request)
+    {
+        //点赞后的状态等于1
+         $thumb = Thumbs_upModel::where('aid', $request->id)->update(['status' => 1]);
+         // 点赞1次加1
+         $thumb1 = DB::table('tab_thumbs_up')->where('aid', $request->id)->increment('thumb',1);
+        return Thumbs_upModel::where('aid', $request->id)->first();
     }
 }

@@ -82,9 +82,9 @@
             </ul>
             @if(session('user'))
                 <div style="height: 70px;width: 260px; float: right">
-                    <img src="{{ asset('home/images/i/shang.png') }}" style="height: 70px;width: 70px; color: black; float: left">
-                    <a style="font-size: 16px;margin-left: 8px;">{{ session('user') }}</a>
-                    <a style="font-size: 12px;color: white;margin-left: 20px;">Lv:最强王者</a>
+                    <img src="{{ asset('image/'.session('user')['photo']) }}" style="height: 70px;width: 70px; color: black; float: left">
+                    <a style="font-size: 16px;margin-left: 8px;">{{ session('user')['nickname'] }}</a>
+                    <a style="font-size: 12px;color: white;margin-left: 20px;">积分:{{ session('user')['score'] }}</a>
                     <button class="am-btn am-btn-danger am-btn-xs am-radius" style="margin-left: 5px;" ><i class="am-icon-cog"></i>个人中心</button>
                     <a href="{{ URL('/doLogOut') }}"><button  class="am-btn am-btn-danger am-btn-xs am-radius" >注销</button></a>
                 </div>
@@ -114,7 +114,6 @@
             <li><a href="#">友情链接</a></li>
             <li><a href="#">意见反馈</a></li>
 
-        <div class="btnlogo"><img src="{{ asset('home/images/btnlogo.png') }}"/></div>
         <p>山海问问出品<br>
 
         <div class="w2div">
