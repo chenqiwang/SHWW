@@ -33,11 +33,13 @@ class answerController extends Controller
         
         //tab_thumbs_up点赞表
         $thunbs = Thumbs_upModel::where('aid' ,$pid)->first();
-        
+
         //用tab_answer的id查询tab_user_info的字段
         $answer = DB::table('tab_answer')
         ->join('tab_user_info', 'tab_answer.uid','=', 'tab_user_info.id')
-        ->select('tab_answer.*','tab_user_info.nickname','tab_user_info.photo','tab_user_info.score')->get();
+        ->select('tab_answer.*','tab_user_info.nickname','tab_user_info.photo','tab_user_info.score')
+        ->where('tab_answer.pid', $pid)
+        ->get();
         
         return view('home.answer' ,compact('user','problem','integral','answer','thunbs'));
 

@@ -32,7 +32,7 @@ class HomeController extends Controller
             ->join('tab_user_info','tab_problem.uid','=','tab_user_info.id')
             ->select('tab_problem.*','tab_label.mview','tab_user_info.name as uname')
             ->where('tab_problem.count', '>=', 1)
-            ->where('tab_problem.status', 1)
+            ->where('tab_problem.status', 0)
             ->orderBy('tab_problem.count','desc')
             ->take(10)
             ->get();
@@ -43,7 +43,7 @@ class HomeController extends Controller
             ->join('tab_label', 'tab_problem.id','=','tab_label.id')
             ->join('tab_user_info','tab_problem.uid','=','tab_user_info.id')
             ->select('tab_problem.name','tab_problem.id','tab_problem.time','tab_user_info.photo','tab_user_info.name as uname')
-            ->where('tab_problem.status', 1)
+            ->where('tab_problem.status', 0)
             ->orderBy('tab_problem.time','desc')
             ->take(5)
             ->get();
