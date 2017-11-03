@@ -25,10 +25,10 @@
             </li>
         </ul>
         </li>
-@endforeach 
         </thead>      
      </table>
     </div>
 </div>
 
+@endforeach 
 @endsection

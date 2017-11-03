@@ -23,6 +23,13 @@ Route::get('/getCode','home\LoginController@getCode');
 Route::post('/register', 'home\LoginController@doRegister');
 Route::get('/doLogOut','home\LoginController@dologOut');
 
+
+ //个人中心
+Route::get('/center','home\CenterController@index');
+//个人资料
+Route::get('/data','home\DataController@index');
+
+
 Route::group(['prefix' => 'ngavig'] ,function(){
 
     //前台导航的内容内容分类

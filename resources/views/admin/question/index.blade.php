@@ -1,5 +1,6 @@
 @extends('admin.parent.index')
 @section('content')
+<!-- 搜索 -->
 <div class="widget-body  am-fr">
     <form action="{{ URL('admin/tabulation') }}">
         <div class="am-u-sm-12 am-u-md-12 am-u-lg-3">
@@ -10,10 +11,14 @@
               </span>
             </div>
         </div>
-    <form>
+
+     </form>
+ </div>
+        <!-- 搜索结束 -->
  <div class="am-u-sm-12">
-        <table width="100%" class="am-table am-table-compact am-table-striped tpl-table-black " id="example-r">
-            <thead>
+<table width="100%" class="am-table am-table-compact am-table-striped tpl-table-black " id="example-r">
+</thead>
+ <thead>
                 <tr>
                     <th>id</th>
                     <th>问题</th>
@@ -22,8 +27,9 @@
                     <th>问题分类</th>
                     <th>操作</th>
                 </tr>
-            </thead>
-            @foreach ($list as $v)
+    </thead>
+<!-- 遍历 -->
+      @foreach ($list as $v)
                 <tr class="gradeX">
                             <td>{{ $v->id }}</td>    
                             <td>{{ $v->name }}</td>
@@ -41,13 +47,12 @@
                                 </a>   
                             </td>
 
-                        </tr>
- </div>
-                @endforeach 
 
+                 </tr>
+                 @endforeach 
+ </div>  
+                <!-- 遍历结束 -->
 </table>
-<div class="am-u-lg-12 am-cf">
-
 <div class="am-fr">
 {!! $list->appends($where)->render() !!}
 </div>

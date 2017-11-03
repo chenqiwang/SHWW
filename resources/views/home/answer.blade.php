@@ -63,6 +63,7 @@
                                                 <div class="answers">
                                                     <div class="hd">
                                                         <h2>全部回答</h2>
+
                                                     </div>
                                                     <div class="bd">
                                                         <ul>
@@ -83,7 +84,9 @@
                                                                             <span title="采纳率越高回答质量越高">
                                                                                 <span style="margin-right:0;" class="o"></span></span>
                                                                             <span></span>
+
                                                                             <span class="time">{{ $a->revtime }}</span></div>
+
                                                                     </div>
                                                                 </div>
                                                                 <div class="other-ans-cnt">
@@ -96,6 +99,7 @@
                                                                     <div class="clearfix">
                                                                         <div class="action">
                                                                             <span class="js-operate" style="visibility: hidden;">
+
                                                                             </span>
 
                                                                             @if( $thunbs->aid == $a->id || $thunbs->status == 0 )
@@ -103,6 +107,7 @@
                                                                            @else
                                                                            <a href="javascript:;" id="show{{$a->id}}" onclick="dian({{ $a->id }})"><img id="thumb{{ $a->id }}" height="15" widht="15" src="{{ asset('image/give1.png') }}"></a>
                                                                            @endif
+
 
                                                                         </div>
                                                                     </div>
@@ -122,17 +127,19 @@
                                                     <h2>相关问题</h2>
                                                 </div>
                                                 <div class="bd">
-
                                                 </div>
                                             </div>
                                             <div class="mod-related_search" id="js-rel-list">
 
                                             </div>
+
                                         </div>
                                         </div>
                                     </div> 
                                     <div id="js-aside" class="aside" style="float:right">
+
                                             <div style="display:none"></div>
+
                                     
                                 </div>
 
@@ -183,4 +190,5 @@
                                 }
                             </script>
                             @endif
+
 @endsection

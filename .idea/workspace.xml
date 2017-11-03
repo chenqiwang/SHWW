@@ -12,16 +12,19 @@
   <component name="ComposerSettings" doNotAsk="true" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+
       <file leaf-file-name="answer.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/home/answer.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="241">
               <caret line="100" column="76" lean-forward="true" selection-start-line="100" selection-start-column="76" selection-end-line="104" selection-end-column="81" />
+
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+
       <file leaf-file-name="answerController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/home/answerController.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -39,6 +42,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
               <caret line="36" column="18" lean-forward="false" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="18" />
+
               <folding />
             </state>
           </provider>
@@ -50,6 +54,7 @@
     <findStrings>
       <find>.am-topbar-ri</find>
       <find>==</find>
+
       <find>推荐</find>
       <find>合作专栏</find>
     </findStrings>
@@ -58,6 +63,7 @@
     <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="FORCE_PUSH_ALLOWED" value="false" />
+
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -76,9 +82,11 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/admin/CompController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/complaint/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/admin/LoginController.php" />
+
         <option value="$PROJECT_DIR$/app/Http/Controllers/home/WholeController.php" />
         <option value="$PROJECT_DIR$/app/Models/AnswerModel.php" />
         <option value="$PROJECT_DIR$/public/home/assets/css/amazeui.css" />
+
         <option value="$PROJECT_DIR$/resources/views/home/whole.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/admin/UserController.php" />
         <option value="$PROJECT_DIR$/app/Http/Kernel.php" />
@@ -88,9 +96,11 @@
         <option value="$PROJECT_DIR$/app/Models/User_infoModel.php" />
         <option value="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" />
         <option value="$PROJECT_DIR$/composer.json" />
+
         <option value="$PROJECT_DIR$/config/database.php" />
         <option value="$PROJECT_DIR$/public/admin/css/bootstrap.min.css" />
         <option value="$PROJECT_DIR$/resources/views/welcome.blade.php" />
+
         <option value="$PROJECT_DIR$/resources/views/admin/question/hotspot.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/question/content.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/question/collect.blade.php" />
@@ -99,6 +109,7 @@
         <option value="$PROJECT_DIR$/resources/views/admin/question/recyling.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/question/recyling2.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/parent/index.blade.php" />
+
         <option value="$PROJECT_DIR$/app/Http/Controllers/home/LoginController.php" />
         <option value="$PROJECT_DIR$/resources/views/home/emotion.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/home/public/parent.blade.php" />
@@ -110,6 +121,7 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/home/HomeController.php" />
         <option value="$PROJECT_DIR$/resources/views/home/answer.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/home/answerController.php" />
+
       </list>
     </option>
   </component>
@@ -149,6 +161,7 @@
     <panes>
       <pane id="Scope" />
       <pane id="Scratches" />
+
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -186,45 +199,56 @@
               <item name="object" type="b2602c69:ProjectViewProjectNode" />
               <item name="object" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+
               <item name="Http" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Controllers" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="home" type="2a2b976b:PhpTreeStructureProvider$1" />
+
             </path>
             <path>
               <item name="object" type="b2602c69:ProjectViewProjectNode" />
               <item name="object" type="2a2b976b:PhpTreeStructureProvider$1" />
+
               <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Models" type="2a2b976b:PhpTreeStructureProvider$1" />
+
             </path>
             <path>
               <item name="object" type="b2602c69:ProjectViewProjectNode" />
               <item name="object" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+
             </path>
             <path>
               <item name="object" type="b2602c69:ProjectViewProjectNode" />
               <item name="object" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+
             </path>
             <path>
               <item name="object" type="b2602c69:ProjectViewProjectNode" />
               <item name="object" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+
               <item name="home" type="2a2b976b:PhpTreeStructureProvider$1" />
+
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
+
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -268,20 +292,24 @@
       <workItem from="1509624251176" duration="7360000" />
       <workItem from="1509631909695" duration="4342000" />
       <workItem from="1509670013221" duration="5158000" />
+
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="95704000" />
+
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27598828" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32763976" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -309,6 +337,7 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/home/WholeController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="116">
@@ -316,6 +345,7 @@
         </state>
       </provider>
     </entry>
+
     <entry file="file://$PROJECT_DIR$/app/Models/AnswerModel.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="325">
@@ -330,6 +360,7 @@
         </state>
       </provider>
     </entry>
+
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/admin/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="975">
@@ -340,6 +371,7 @@
         </state>
       </provider>
     </entry>
+
     <entry file="file://$PROJECT_DIR$/app/Models/ComplaintModel.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -382,6 +414,7 @@
         </state>
       </provider>
     </entry>
+
     <entry file="file://$PROJECT_DIR$/public/admin/css/bootstrap.min.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-300">
@@ -424,6 +457,7 @@
           <caret line="40" column="81" lean-forward="false" selection-start-line="40" selection-start-column="81" selection-end-line="40" selection-end-column="81" />
           <folding>
             <element signature="e#46#74#0#PHP" expanded="false" />
+
           </folding>
         </state>
       </provider>
@@ -458,6 +492,7 @@
         </state>
       </provider>
     </entry>
+
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/admin/HotspotController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="275">
@@ -515,6 +550,7 @@
         </state>
       </provider>
     </entry>
+
     <entry file="file://$PROJECT_DIR$/resources/views/admin/question/collect.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -609,6 +645,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="241">
           <caret line="61" column="64" lean-forward="false" selection-start-line="61" selection-start-column="64" selection-end-line="61" selection-end-column="64" />
+
           <folding />
         </state>
       </provider>
@@ -655,10 +692,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="36" column="18" lean-forward="false" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="18" />
+
           <folding />
         </state>
       </provider>
     </entry>
+
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/home/answerController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="401">

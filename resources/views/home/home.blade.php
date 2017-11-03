@@ -130,6 +130,7 @@
         <div data-am-widget="list_news" class="am-list-news am-list-news-default news">
             <div class="am-list-news-bd">
                 <ul class="am-list">
+
                     @foreach($hotQues as $hot)
                     <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left" data-am-scrollspy="{animation:'fade'}">
                         <div class="am-u-sm-5 am-list-thumb">
@@ -140,6 +141,7 @@
                         </div>
 
                         <div class=" am-u-sm-7 am-list-main">
+
                             <h3 class="am-list-item-hd zero">{{ $hot->name }}</h3>
                             <div class="am-list-item-text" class="more">作者：{{ $hot->uname }}
                                 <br>
@@ -153,6 +155,7 @@
                         <i class="am-icon-commenting-o">{{ $hot->count }}</i>
                     </div>
                     @endforeach
+
                 </ul>
             </div>
             <a href="#"><img src="{{ asset('home/Temp-images/ad2.png') }}" class="am-img-responsive" width="100%"/></a>
@@ -160,6 +163,7 @@
             <div class="am-hide-sm">
                 <div data-am-widget="titlebar" class="am-titlebar am-titlebar-default">
                     <h2 class="am-titlebar-title ">
+
                         专家达人
                     </h2>
                 </div>
@@ -175,6 +179,7 @@
                             </div>
                         </li>
                             @endforeach
+
                     </ul>
                 </div>
 
@@ -338,10 +343,12 @@
     <div class="am-u-sm-12 am-u-md-12 am-u-lg-4">
 
 
+
         <div data-am-widget="titlebar" class="am-titlebar am-titlebar-default">
             <h2 class="am-titlebar-title ">
                 提问问题
             </h2>
+
         </div>
 
         <div data-am-widget="list_news" class="am-list-news am-list-news-default right-bg" data-am-scrollspy="{animation:'fade'}">
@@ -393,15 +400,18 @@
         </div>
         <div data-am-widget="titlebar" class="am-titlebar am-titlebar-default">
             <h2 class="am-titlebar-title ">
+
                最新问题
             </h2>
             <nav class="am-titlebar-nav">
                 <a href="{{ 'ngavig/whole/1' }}">more &raquo;</a>
+
             </nav>
         </div>
 
         <div data-am-widget="list_news" class="am-list-news am-list-news-default right-bg" data-am-scrollspy="{animation:'fade'}">
             <ul class="am-list"  >
+
                 @foreach($newQues as $new)
                 <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left">
                     <div class="am-u-sm-4 am-list-thumb">
@@ -445,6 +455,7 @@
                 @endforeach
             </ul>
         </div>
+
     </div>
 </div>
 

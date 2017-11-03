@@ -10,6 +10,7 @@ use App\Models\User_RegloginModel;
 use App\Http\Controllers\Controller;
 use App\Org\SmsCode;
 use Illuminate\Support\Facades\Redis;
+
 use Mockery\Exception;
 use DB;
 
@@ -43,6 +44,7 @@ class LoginController extends Controller
             session(['user' => $user]);
             return redirect('/');
         }
+
         //$pwd = md5($pwd);
         $res = User_RegloginModel::where('phone',$phone)->first();
         if ($res){

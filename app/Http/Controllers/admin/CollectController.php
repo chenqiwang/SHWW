@@ -23,8 +23,8 @@ class CollectController extends Controller
                 ->join('tab_user_info','tab_collection.id','=','tab_user_info.id')
                 ->join('tab_answer','tab_collection.aid','=','tab_answer.id')
                  ->select('tab_collection.id','tab_problem.name','tab_user_info.nickname','tab_answer.content')
-                
-                   ->get();
+
+                   ->Paginate(6);
                  // dd($res);
                  
        return view('admin.question.collect',compact('res'));
@@ -35,13 +35,6 @@ class CollectController extends Controller
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
-     
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request

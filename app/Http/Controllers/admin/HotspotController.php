@@ -18,8 +18,14 @@ class HotspotController extends Controller
     public function index()
     {           
         //
-        
-       return view('admin.question.hotspot');
+
+    $res= DB::table('tab_problem')
+        ->join('tab_integral','tab_problem.id','=','tab_integral.pid')
+        ->join('tab_thumbs_up','tab_problem.id','=','tab_thumbs_up.aid')
+        ->select('tab_integral.*','tab_problem.*','tab_thumbs_up.*')
+        ->Paginate(5);
+      
+       return view('admin.question.hotspot',compact('res'));
     }
    
 
@@ -27,7 +33,7 @@ class HotspotController extends Controller
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
-     
+     */
     public function create()
     {
         //
