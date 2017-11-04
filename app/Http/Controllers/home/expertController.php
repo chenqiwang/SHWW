@@ -16,6 +16,7 @@ class expertController extends Controller
     public function index()
     {
         //
+        
         return view('home.expert');
     }
 

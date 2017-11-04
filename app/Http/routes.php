@@ -23,6 +23,8 @@ Route::get('/getCode','home\LoginController@getCode');
 Route::post('/register', 'home\LoginController@doRegister');
 Route::get('/doLogOut','home\LoginController@dologOut');
 
+
+//前台主页
 Route::group(['prefix' => 'ngavig'] ,function(){
 
     //前台导航的内容内容分类
@@ -33,15 +35,16 @@ Route::group(['prefix' => 'ngavig'] ,function(){
 	Route::get('/emotion/{id}', 'home\WholeController@emotion');
 	//全部问题下的提问
 	Route::get('/answer/{pid}', 'home\answerController@index');
-
     //回复提交
-    Route::post('/ajax','home\answerController@submit');
+    Route::post('/reply','home\answerController@reply');
     //点赞
     Route::get('/dian', 'home\answerController@dian');
-
 	//导航栏精华帖
 	Route::get('/essence', 'home\essenceController@index');
+    //专家分享
     Route::get('/expert', 'home\expertController@index');
+    //发帖
+    Route::post('/supo', 'home\SupoController@faTie');
 });
 
 //后台管理操作,'middleware' => 'isLogin'

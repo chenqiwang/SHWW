@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Models\NoticeModel;
+use App\Models\LabelModel;
 use App\Http\Controllers\Controller;
 use DB;
 
@@ -47,9 +48,12 @@ class HomeController extends Controller
             ->orderBy('tab_problem.time','desc')
             ->take(5)
             ->get();
+        //提交问题
+        $supo = LabelModel::get();
+      
         //广告区域
         $ad2 = AdvertisementModel::where('type', 2)->orderBy('time','desc')->take(5)->get();
         //在Home页面显示
-        return view('home.home', ['notice' => $notice],['newQues' => $newQues,'zeroQues'=>$zeroQues,'hotQues' => $hotQues,'expert' => $expert, 'ad2'=>$ad2]);
+        return view('home.home', ['notice' => $notice],['newQues' => $newQues,'zeroQues'=>$zeroQues,'hotQues' => $hotQues,'expert' => $expert,'supo' => $supo, 'ad2'=>$ad2]);
     }
 }

@@ -66,7 +66,7 @@
                                     </li>
                                     @endforeach
                                 </ul>
-                                </div> 
+                            </div> 
             </ul>
         </div>
     </div>
@@ -345,51 +345,29 @@
         </div>
 
         <div data-am-widget="list_news" class="am-list-news am-list-news-default right-bg" data-am-scrollspy="{animation:'fade'}">
-            <ul class="am-list">
-                <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left">
-                    <div class="am-u-sm-4 am-list-thumb">
-                        <a href="http://www.douban.com/online/11624755/">
-                            <img src="{{ asset('home/Temp-images/face.jpg') }}" class="face"/>
-                        </a>
+			  <form class="am-form" action="javascript:;">
+                <fieldset>
+                    <div class="am-form-group">
+                        <label for="doc-select-1">帖子类型选择</label>
+                        <select>
+
+                           @foreach( $supo as $s )
+                           @if( $s->id != 1 )
+                            <option value="{{ $s->id }}">{{ $s->name }}</option>
+                           @endif
+                           @endforeach
+
+                        </select>
+                        <span class="am-form-caret"></span>
+                    </div>
+                    <div class="am-form-group">
+                        <label for="doc-ta-1">发帖内容</label>
+                        <textarea id="tw" class="" rows="5" id="doc-ta-1"></textarea>
                     </div>
 
-                    <div class=" am-u-sm-8 am-list-main">
-                        <h3 class="am-list-item-hd"><a href="http://www.douban.com/online/11624755/">勾三古寺</a></h3>
-
-                        <div class="am-list-item-text">代码压缩和最小化。在这里，我们为你收集了9个最好的JavaScript压缩工具将帮</div>
-                    </div>
-                </li>
-                <hr data-am-widget="divider" style="" class="am-divider am-divider-default" />
-                <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left">
-                    <div class="am-u-sm-4 am-list-thumb">
-                        <a href="http://www.douban.com/online/11624755/">
-                            <img src="{{ asset('home/Temp-images/face.jpg') }}" class="face"/>
-                        </a>
-                    </div>
-
-                    <div class=" am-u-sm-8 am-list-main">
-                        <h3 class="am-list-item-hd"><a href="http://www.douban.com/online/11624755/">勾三古寺</a></h3>
-
-                        <div class="am-list-item-text">代码压缩和最小化。在这里，我们为你收集了9个最好的JavaScript压缩工具将帮</div>
-
-                    </div>
-                </li>
-                <hr data-am-widget="divider" style="" class="am-divider am-divider-default" />
-                <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left">
-                    <div class="am-u-sm-4 am-list-thumb">
-                        <a href="http://www.douban.com/online/11624755/">
-                            <img src="{{ asset('home/Temp-images/face.jpg') }}" class="face"/>
-                        </a>
-                    </div>
-
-                    <div class=" am-u-sm-8 am-list-main">
-                        <h3 class="am-list-item-hd"><a href="http://www.douban.com/online/11624755/">勾三古寺</a></h3>
-
-                        <div class="am-list-item-text">代码压缩和最小化。在这里，我们为你收集了9个最好的JavaScript压缩工具将帮</div>
-
-                    </div>
-                </li>
-            </ul>
+                    <p><button onclick="supo()" class="am-btn am-btn-default">发帖</button></p>
+                </fieldset>
+            </form>
         </div>
         <div data-am-widget="titlebar" class="am-titlebar am-titlebar-default">
             <h2 class="am-titlebar-title ">
@@ -447,7 +425,6 @@
         </div>
     </div>
 </div>
-
 <div data-am-widget="gotop" class="am-gotop am-gotop-fixed" >
     <a href="#top" title="回到顶部">
         <span class="am-gotop-title">回到顶部</span>
@@ -472,4 +449,25 @@
         });
     }
 </script>
+@if( session('user') )
+<script>
+    function supo()
+    {
+        var lid = $('option:selected').val();
+        var content = $('#tw').val();
+        // alert(lid);
+       $.post("/ngavig/supo", {'lid':lid, 'content':content,'_token':'{{ csrf_token() }}'}, function(data){
+        alert(data);
+       });
+    }
+</script>
+@else
+<script>
+    function supo()
+    {
+        alert('请先登录再发帖');
+    }
+</script>
+@endif
+
 @endsection

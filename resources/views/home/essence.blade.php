@@ -7,7 +7,7 @@
             <div class="am-list-news-bd">
                 <ul class="am-list">
                     @foreach( $price as $pr )
-                    @if( $pr->status == 1 )
+                    @if( $pr->status == 0 )
                     <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left" >
 
                         <div class=" am-u-sm-7 am-list-main">

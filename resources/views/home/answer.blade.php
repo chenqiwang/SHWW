@@ -10,7 +10,8 @@
                                                     <i class="icon icon-search">
                                                     </i>山海问答</div>
                                                 <div class="msg">登录一下，也成为分享知识的一员
-                                                    <br>首次登录可获：经验+20</div>
+                                                    <br>首次登录可获：经验+20<br>登录可以回帖哦!!</div>
+
                                                 <a href="{{ url('login')}}">点击我去登录哟</a>
 
                                     </div>
@@ -51,13 +52,15 @@
                                                 </div>
                                             </div>
                                             <div class="mod-q-ans js-form ">
+                                                @if(session('user'))
                                                 <form>
                                                     <div>
                                                         <textarea id="editor" style="width:100%;height:200px;">
                                                         </textarea>
                                                     </div>
-                                                    <button type="button" onclick="" style="float:right;width:60px;height:30px;" >提交</button>
+                                                    <button type="button" onclick="hui({{ $problem->id }})" style="float:right;width:60px;height:30px;" >提交</button>
                                                 </form>
+                                                @endif
                                             </div>
                                             <div class="mod-other-ans clearfix" id="hoa">
                                                 <div class="answers">
@@ -138,6 +141,7 @@
 
                             </div>                        
 
+
                             <script type="text/javascript">
                                 var ue = UE.getEditor('editor', {
                                     toolbars: [
@@ -149,24 +153,17 @@
                                 });
                                 ue.execCommand('serverparam', '_token', '{{ csrf_token() }}');
 
-                                function hui()
+                                function hui(pid)
                                 {
-                                    var v = ue.getContentTxt();
-                                    // alert(v);
-                                    $.post("{{ URL('/ngavig/ajax') }}", {v:v,'_token':'{{csrf_token()}}'}, function(data){
+                                    var content = ue.getContentTxt();
+                                    $.post("/ngavig/reply", {'content':content, 'pid':pid, '_token':'{{csrf_token()}}'}, function(data){
                                         alert(data);
+                                        window.location = '';
                                     });
                                 }
 
                             </script>
-                            @if(!session('user'))
-                            <script>
-                                 function dian(id)
-                                {
-                                    alert('请先登录再点赞');
-                                }
-                            </script>
-                            @else
+                            @if(session('user'))
                             <script>
                                  function dian(id)
                                 {
@@ -180,6 +177,13 @@
                                             thumb.setAttribute('href','');
                                         }
                                     });
+                                }
+                            </script>
+                            @else
+                            <script>
+                                 function dian(id)
+                                {
+                                    alert('请先登录再发帖');
                                 }
                             </script>
                             @endif

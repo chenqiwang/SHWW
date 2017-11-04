@@ -42,9 +42,27 @@ class answerController extends Controller
         return view('home.answer' ,compact('user','problem','integral','answer','thunbs'));
 
     }
-    public function submit(Request $request)
+
+    public function reply(Request $request)
     {
-        
+        if (!empty($request['content'])) {
+            //new一个tab_answer表
+            $reply = new AnswerModel;
+            //在哪个问题下发帖
+            $reply->pid = $request['pid'];
+            //发帖用户
+            $reply->uid = session('user')['id'];
+            //发帖内容
+            $reply->content = $request['content'];
+            //发帖时间
+            $reply->revtime = date('Y-m-d H:i:s', time());
+            //添加
+            $reply->save();
+            //重定向
+            return '回复成功';
+        } else {
+            return '请先填写内容，再回复';
+        }
     }
     public function dian(Request $request)
     {
