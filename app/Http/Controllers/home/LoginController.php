@@ -111,7 +111,7 @@ class LoginController extends Controller
             $phone = $info['phone'];
             $pwd = $info['pwd'];
             //密码加密
-            $pwd = md5($pwd);
+            //$pwd = md5($pwd);
             if ($code == $scode) {
                 $res = User_RegloginModel::where('phone', $phone)->first();
                 if (!$res){
