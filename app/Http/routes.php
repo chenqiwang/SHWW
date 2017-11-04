@@ -25,7 +25,7 @@ Route::get('/doLogOut','home\LoginController@dologOut');
  //个人中心
 Route::get('/center','home\CenterController@index');
 //个人资料
-Route::get('/data','home\DataController@index');
+Route::resource('/data','home\DataController');
 
 Route::group(['prefix' => 'ngavig'] ,function(){
 
