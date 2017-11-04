@@ -25,6 +25,11 @@ class essenceController extends Controller
     {
 
          // //取采纳率大于50的帖子
+        /*$price = DB::table('tab_integral')
+        ->join('tab_problem', 'tab_integral.pid', '=', 'tab_problem.id')
+        ->select('tab_integral.adopt', 'tab_problem.*')->where('tab_integral.adopt' ,'>', 50)->get();
+        return view('home.essence', compact('price'));*/
+         // //取采纳率大于50的帖子
         $price = DB::table('tab_integral')
         ->join('tab_problem', 'tab_integral.pid', '=', 'tab_problem.id')
         ->select('tab_integral.adopt', 'tab_problem.*')->where('tab_integral.adopt' ,'>', 50)->get();
