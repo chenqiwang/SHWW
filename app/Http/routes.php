@@ -22,10 +22,17 @@ Route::get('/register', 'home\LoginController@register');
 Route::get('/getCode','home\LoginController@getCode');
 Route::post('/register', 'home\LoginController@doRegister');
 Route::get('/doLogOut','home\LoginController@dologOut');
+
+
  //个人中心
 Route::get('/center','home\CenterController@index');
 //个人资料
 Route::resource('/data','home\DataController');
+//我的提问
+Route::resource('/quiz','home\QuizController');
+//修改密码
+Route::resource('/alter','home\AlterController');
+
 
 Route::group(['prefix' => 'ngavig'] ,function(){
 
@@ -36,14 +43,20 @@ Route::group(['prefix' => 'ngavig'] ,function(){
 	//导航下的全部问题
 	Route::get('/emotion/{id}', 'home\WholeController@emotion');
 	//全部问题下的提问
-	Route::get('/answer/{pid}/{uid}', 'home\answerController@index');
+	Route::get('/answer/{pid}', 'home\answerController@index');
+
+    //回复提交
+    Route::post('/ajax','home\answerController@submit');
+    //点赞
+    Route::get('/dian', 'home\answerController@dian');
+
 	//导航栏精华帖
 	Route::get('/essence', 'home\essenceController@index');
-
+    Route::get('/expert', 'home\expertController@index');
 });
 
-//后台管理操作
-Route::group(['prefix' => 'admin','middleware' => 'isLogin'], function () {
+//后台管理操作,'middleware' => 'isLogin'
+Route::group(['prefix' => 'admin'], function () {
 	//显示后台首页
 	Route::get('/index', 'admin\IndexController@index');
 	//后台用户管理操作
@@ -54,6 +67,7 @@ Route::group(['prefix' => 'admin','middleware' => 'isLogin'], function () {
     Route::resource('comp', 'admin\CompController');
     // 公告管理操作
     Route::resource('notice', 'admin\NoticeController');
+
     Route::post('doNotice', 'admin\NoticeController@delNotice');
      //问题列表
      Route::get('tabulation', 'admin\QuestionController@index');

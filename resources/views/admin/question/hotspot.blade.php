@@ -1,6 +1,7 @@
 @extends('admin.parent.index')
 @section('title', '精华帖')
 @section('content')
+
 <!-- 搜索 -->
 <div class="widget-body  am-fr">
     <form action="{{ URL('admin/tabulation') }}">

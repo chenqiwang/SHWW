@@ -1,147 +1,165 @@
 @extends('home.public.parent')
-
 @section('content')
-<script>
-    var countnum=5 //一共多少个图 例如6个请输入5
-    $("#leftbtn").click(function(){
-        var temp_href=$("#topface li:eq(0) a").attr("href");
-        var temp_img=$("#topface li:eq(0) img").attr("src");
-        var temp_h3=$("#topface li:eq(0) h3").html();
-        var temp_p=$("#topface li:eq(0) p").html();
 
-        for (i=0; i<countnum; i++){
-            var n=i+1;
-            $("#topface li:eq("+i+") a").attr('href',$("#topface li:eq("+n+") a").attr("href"));
-            $("#topface li:eq("+i+") img").attr('src',$("#topface li:eq("+n+") img").attr("src"));
-            $("#topface li:eq("+i+") h3").html($("#topface li:eq("+n+") h3").html());
-            $("#topface li:eq("+i+") p").html($("#topface li:eq("+n+") p").html());
-        };
-        $("#topface li:eq("+countnum+") a").attr('href',temp_href);
-        $("#topface li:eq("+countnum+") img").attr('src',temp_img);
-        $("#topface li:eq("+countnum+") h3").html(temp_h3);
-        $("#topface li:eq("+countnum+") p").html(temp_p);
-    });
-    $("#rightbtn").click(function(){
-        var temp_href=$("#topface li:eq("+countnum+") a").attr("href");
-        var temp_img=$("#topface li:eq("+countnum+") img").attr("src");
-        var temp_h3=$("#topface li:eq("+countnum+") h3").html();
-        var temp_p=$("#topface li:eq("+countnum+") p").html();
+<div class="am-g am-container padding-none">
+    <div class="am-u-sm-12 am-u-md-12 am-u-lg-8 newshui">
+        <div data-am-widget="list_news" class="am-list-news am-list-news-default ">
+            <div class="am-list-news-bd">
+                <ul class="am-list">
+                    @foreach( $price as $pr )
+                    @if( $pr->status == 1 )
+                    <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left" >
 
-        for (i=countnum; i>0; i--){
-            var n=i-1;
-            $("#topface li:eq("+i+") a").attr('href',$("#topface li:eq("+n+") a").attr("href"));
-            $("#topface li:eq("+i+") img").attr('src',$("#topface li:eq("+n+") img").attr("src"));
-            $("#topface li:eq("+i+") h3").html($("#topface li:eq("+n+") h3").html());
-            $("#topface li:eq("+i+") p").html($("#topface li:eq("+n+") p").html());
-        };
-        $("#topface li:eq(0) a").attr('href',temp_href);
-        $("#topface li:eq(0) img").attr('src',temp_img);
-        $("#topface li:eq(0) h3").html(temp_h3);
-        $("#topface li:eq(0) p").html(temp_p);
-    });
-</script>
-<div id="cattit">
-    <ul class="am-avg-sm-2 am-avg-md-2 am-avg-lg-2">
-        <h3><a href="#">精华帖</a></h3>
-    </ul>
-</div>
-<hr data-am-widget="divider" style="" class="am-divider am-divider-default" />
-<div id="cattlist" class="am-container">
-    <ul class="am-avg-sm-1 am-avg-md-3 am-avg-lg-4">
-        <li>
-            <div class="cattlist_0">
-                <div class="cattlist_1">
-                    <div class="am-g">
-                        <div class="am-u-sm-4 am-u-md-5 am-u-lg-5 am-vertical-align">
-                            <div class="am-vertical-align-middle">
-                                <img src="{{ asset('image/' . rand(1,14).'.jpg') }}">
-                            </div>
+                        <div class=" am-u-sm-7 am-list-main">
+                            <h3 class="am-list-item-hd"><a href="/ngavig/answer/{{$pr->id}}">标题:{{ $pr->name }}</a></h3>
+                            <div class="am-list-item-text">采纳率:{{ $pr->adopt }}%</div>
+                            <div class="am-list-item-text">时间:{{ $pr->time }}</div>
+
                         </div>
-                        <div class="am-u-sm-8 am-u-md-7 am-u-lg-7">
+                       
+                    </li>
+                    @endif
+                   @endforeach
 
-                            <h3>山边小溪</h3>
-                            <h4>AmazeUI</h4>
-                            <p>文章<span>9</span></p>
-                        </div>
-                    </div>
-                </div>
+                </ul>
+
+                <ul data-am-widget="pagination" class="am-pagination am-pagination-default">
+
+                    <li class="am-pagination-first ">
+                        <a href="#" class="">第一页</a>
+                    </li>
+
+                    <li class="am-pagination-prev ">
+                        <a href="#" class="">上一页</a>
+                    </li>
+
+
+                    <li class="">
+                        <a href="#" class="">1</a>
+                    </li>
+                    <li >
+                        <a href="#">2</a>
+                    </li>
+                    <li class="">
+                        <a href="#" class="">3</a>
+                    </li>
+                    <li class="">
+                        <a href="#" class="">4</a>
+                    </li>
+                    <li class="">
+                        <a href="#" class="">5</a>
+                    </li>
+                    <li class="">
+                        <a href="#" class="">6</a>
+                    </li>
+                    <li class="">
+                        <a href="#" class="">7</a>
+                    </li>
+                    <li class="">
+                        <a href="#" class="">8</a>
+                    </li>
+                    <li class="am-active">
+                        <a href="#">9</a>
+                    </li>
+                    <li class="">
+                        <a href="#" class="">10</a>
+                    </li>
+                    <li class="">
+                        <a href="#" class="">11</a>
+                    </li>
+                    <li class="">
+                        <a href="#" class="">12</a>
+                    </li>
+                    <li class="">
+                        <a href="#" class="">13</a>
+                    </li>
+                    <li class="">
+                        <a href="#" class="">14</a>
+                    </li>
+                    <li class="">
+                        <a href="#" class="">15</a>
+                    </li>
+                    <li class="">
+                        <a href="#" class="">16</a>
+                    </li>
+
+
+                    <li class="am-pagination-next ">
+                        <a href="#" class="">下一页</a>
+                    </li>
+
+                    <li class="am-pagination-last ">
+                        <a href="#" class="">最末页</a>
+                    </li>
+                </ul>
             </div>
-        </li>
-    </ul>
+        </div>
+    </div>
+    <div class="am-u-sm-0 am-u-md-0 am-u-lg-4 padding-none am-hide-sm">
+        <div class="tag">
+            <div data-am-widget="titlebar" class="am-titlebar am-titlebar-default" >
+                <h2 class="am-titlebar-title ">
+                    热门标签
+                </h2>
+            </div>
+            <ul>
+                <li class="active"><a href="#">的房间打开</a></li>
+                <li><a href="#">阿斯达</a></li>
+                <li><a href="#">恩恩</a></li>
+                <li><a href="#">十二分</a></li>
+                <li><a href="#">爱妃</a></li>
+                <li><a href="#">而非</a></li>
+                <li><a href="#">为非</a></li>
+                <li><a href="#">二位</a></li>
+                <li><a href="#">维吾尔</a></li>
+                <li><a href="#">玩儿玩儿</a></li>
+            </ul>
+            <div class="am-cf"></div>
+        </div>
+    </div>
+        <div class="am-u-sm-0 am-u-md-0 am-u-lg-4 padding-none am-hide-sm">
+        <div class="tag">
+            <div data-am-widget="titlebar" class="am-titlebar am-titlebar-default" >
+                <h2 class="am-titlebar-title ">
+                    热门标签
+                </h2>
+            </div>
+            <ul>
+                <li class="active"><a href="#">的房间打开</a></li>
+                <li><a href="#">阿斯达</a></li>
+                <li><a href="#">恩恩</a></li>
+                <li><a href="#">十二分</a></li>
+                <li><a href="#">爱妃</a></li>
+                <li><a href="#">而非</a></li>
+                <li><a href="#">为非</a></li>
+                <li><a href="#">二位</a></li>
+                <li><a href="#">维吾尔</a></li>
+                <li><a href="#">玩儿玩儿</a></li>
+            </ul>
+            <div class="am-cf"></div>
+        </div>
+                <div class="tag">
+            <div data-am-widget="titlebar" class="am-titlebar am-titlebar-default" >
+                <h2 class="am-titlebar-title ">
+                    热门标签
+                </h2>
+            </div>
+            <ul>
+                <li class="active"><a href="#">的房间打开</a></li>
+                <li><a href="#">阿斯达</a></li>
+                <li><a href="#">恩恩</a></li>
+                <li><a href="#">十二分</a></li>
+                <li><a href="#">爱妃</a></li>
+                <li><a href="#">而非</a></li>
+                <li><a href="#">为非</a></li>
+                <li><a href="#">二位</a></li>
+                <li><a href="#">维吾尔</a></li>
+                <li><a href="#">玩儿玩儿</a></li>
+            </ul>
+            <div class="am-cf"></div>
+        </div>
+    </div>
 </div>
-
-<div class="am-container" style="margin: 100px auto">
-    <ul data-am-widget="pagination" class="am-pagination am-pagination-default am-text-center">
-
-        <li class="am-pagination-first ">
-            <a href="#" class="">第一页</a>
-        </li>
-
-        <li class="am-pagination-prev ">
-            <a href="#" class="">上一页</a>
-        </li>
-
-
-        <li class="">
-            <a href="#" class="">1</a>
-        </li>
-        <li >
-            <a href="#">2</a>
-        </li>
-        <li class="">
-            <a href="#" class="">3</a>
-        </li>
-        <li class="">
-            <a href="#" class="">4</a>
-        </li>
-        <li class="">
-            <a href="#" class="">5</a>
-        </li>
-        <li class="">
-            <a href="#" class="">6</a>
-        </li>
-        <li class="">
-            <a href="#" class="">7</a>
-        </li>
-        <li class="">
-            <a href="#" class="">8</a>
-        </li>
-        <li class="am-active">
-            <a href="#">9</a>
-        </li>
-        <li class="">
-            <a href="#" class="">10</a>
-        </li>
-        <li class="">
-            <a href="#" class="">11</a>
-        </li>
-        <li class="">
-            <a href="#" class="">12</a>
-        </li>
-        <li class="">
-            <a href="#" class="">13</a>
-        </li>
-        <li class="">
-            <a href="#" class="">14</a>
-        </li>
-        <li class="">
-            <a href="#" class="">15</a>
-        </li>
-        <li class="">
-            <a href="#" class="">16</a>
-        </li>
-
-
-        <li class="am-pagination-next ">
-            <a href="#" class="">下一页</a>
-        </li>
-
-        <li class="am-pagination-last ">
-            <a href="#" class="">最末页</a>
-        </li>
-    </ul>
-</div>
-
 
 
 

@@ -1,6 +1,7 @@
 @extends('admin.parent.index')
 @section('title', '收藏')
 @section('content')
+
 <!-- 搜索 -->
 <div class="widget-body  am-fr">
     <form action="{{ URL('admin/tabulation') }}">
@@ -26,7 +27,8 @@
 	            <th>作者</th>
 	            <th>操作</th>
 	        </tr>
-                 </thead>
+</thead>
+
 	 @foreach ($res as $v)
                 <tr class="gradeX">
                             <td>{{ $v->id }}</td>    
@@ -41,6 +43,7 @@
                                 放入回收站
                                 </a>   
                            </td>
+
                      </tr>
       @endforeach   
  </div> 

@@ -1,6 +1,31 @@
 @extends('home.public.parent')
 <!--banner-->
 @section('content')
+<style>
+    .zero{
+        width:18em;
+        display:block;
+        white-space:nowrap;
+        overflow:hidden;
+        text-overflow:ellipsis;
+    }
+    .one{
+        width:13em;
+        display:block;
+        white-space:nowrap;
+        overflow:hidden;
+        text-overflow:ellipsis;
+    }
+    more{
+        overflow:hidden;
+        text-overflow:ellipsis;
+        background: greenyellow;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        overflow: hidden;
+    }
+</style>
 <div class="banner">
     <div class="am-g am-container">
         <div class="am-u-sm-12 am-u-md-12 am-u-lg-8">
@@ -52,12 +77,12 @@
     <ul class="padding-none banner2 am-gallery am-avg-sm-2 am-avg-md-4 am-avg-lg-4 am-gallery-overlay" data-am-gallery="{ pureview: true }" >
         <li>
             <div class="am-gallery-item">
-               <h1>等你来答</h1>
-               <a href="/b/nYw7v9vXF.html" target="_blank">东奥会计在线继续教育如何取消课堂答题</a>
-               <a href="/b/nYw7v9vXF.html" target="_blank">东奥会计在线继续教育如何取消课堂答题</a>
-               <a href="/b/nYw7v9vXF.html" target="_blank">东奥会计在线继续教育如何取消课堂答题</a>
-               <a href="/b/nYw7v9vXF.html" target="_blank">东奥会计在线继续教育如何取消课堂答题</a>
-               <a href="/b/nYw7v9vXF.html" target="_blank">东奥会计在线继续教育如何取消课堂答题</a>
+                <h1>等你来答</h1>
+
+
+                @foreach($zeroQues as $z)
+               <a href="/ngavig/answer/{{ $z->id }}" class="zero" target="_self">{{ $z->name }}</a>
+                @endforeach
             </div>
         </li>
         <li>
@@ -95,141 +120,41 @@
     <div class="am-u-sm-12 am-u-md-12 am-u-lg-8 oh">
         <div data-am-widget="titlebar" class="am-titlebar am-titlebar-default" style="border-bottom: 0px; margin-bottom: -10px">
             <h2 class="am-titlebar-title ">
-                热门资讯
+                热门问题
             </h2>
             <nav class="am-titlebar-nav">
-                <a href="#more">more &raquo;</a>
+                <a href="{{ URL('ngavig/whole/1') }}">更多 &raquo;</a>
             </nav>
         </div>
 
         <div data-am-widget="list_news" class="am-list-news am-list-news-default news">
             <div class="am-list-news-bd">
                 <ul class="am-list">
+
+                    @foreach($hotQues as $hot)
                     <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left" data-am-scrollspy="{animation:'fade'}">
                         <div class="am-u-sm-5 am-list-thumb">
-                            <a href="http://www.douban.com/online/11624755/">
-                                <img src="{{ asset('home/Temp-images/b2.jpg') }}" alt="我最喜欢的一张画"/>
+                            <a href="#">
+                                <img src="{{ asset('image/'.$hot->mview) }}" style="height: 80px;width: 250px;" class="face"/>
                             </a>
 
                         </div>
 
                         <div class=" am-u-sm-7 am-list-main">
-                            <h3 class="am-list-item-hd"><a href="http://www.douban.com/online/11624755/">我最喜欢的一张画</a></h3>
-                            <div class="am-list-item-text">你最喜欢的艺术作品，告诉大家它们的------名图画，色彩，交织，撞色，线条雕塑装置当代古代现代作品的照片美我最喜欢的画群296795413进群发画，少说多发图，</div>
-                        </div>
 
+                            <h3 class="am-list-item-hd zero">{{ $hot->name }}</h3>
+                            <div class="am-list-item-text" class="more">作者：{{ $hot->uname }}
+                                <br>
+                                <a href="{{ URL('/ngavig/answer/'.$hot->id) }}">点我进入哟>></a>
+                            </div>
+                        </div>
                     </li>
+
                     <div class="newsico am-fr">
-                        <i class="am-icon-clock-o">2016/11/11</i>
-                        <i class="am-icon-hand-pointer-o">12322</i>
+                        <i class="am-icon-clock-o">{{ $hot->time }}</i>
+                        <i class="am-icon-commenting-o">{{ $hot->count }}</i>
                     </div>
-
-
-                    <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left" data-am-scrollspy="{animation:'fade'}">
-                        <div class="am-u-sm-5 am-list-thumb">
-                            <a href="http://www.douban.com/online/11624755/">
-                                <img src="{{ asset('home/Temp-images/b2.jpg') }}" alt="我最喜欢的一张画"/>
-                            </a>
-                        </div>
-
-                        <div class=" am-u-sm-7 am-list-main">
-                            <h3 class="am-list-item-hd"><a href="http://www.douban.com/online/11624755/">我最喜欢的一张画</a></h3>
-
-                            <div class="am-list-item-text">你最喜欢的艺术作品，告诉大家它们的------名图画，色彩，交织，撞色，线条雕塑装置当代古代现代作品的照片美我最喜欢的画群296795413进群发画，少说多发图，</div>
-
-                        </div>
-                    </li>
-
-                    <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left" data-am-scrollspy="{animation:'fade'}">
-                        <div class="am-u-sm-5 am-list-thumb">
-                            <a href="http://www.douban.com/online/11624755/">
-                                <img src="{{ asset('home/Temp-images/b2.jpg') }}" alt="我最喜欢的一张画"/>
-                            </a>
-                        </div>
-
-                        <div class=" am-u-sm-7 am-list-main">
-                            <h3 class="am-list-item-hd"><a href="http://www.douban.com/online/11624755/">我最喜欢的一张画</a></h3>
-
-                            <div class="am-list-item-text">你最喜欢的艺术作品，告诉大家它们的------名图画，色彩，交织，撞色，线条雕塑装置当代古代现代作品的照片美我最喜欢的画群296795413进群发画，少说多发图，</div>
-
-                        </div>
-                    </li>
-
-                    <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left" data-am-scrollspy="{animation:'fade'}">
-                        <div class="am-u-sm-7 am-list-thumb">
-                            <a href="http://www.douban.com/online/11624755/">
-                                <img src="{{ asset('home/Temp-images/b2.jpg') }}" alt="我最喜欢的一张画"/>
-                            </a>
-                        </div>
-
-                        <div class=" am-u-sm-5 am-list-main">
-                            <h3 class="am-list-item-hd"><a href="http://www.douban.com/online/11624755/">我最喜欢的一张画</a></h3>
-
-                            <div class="am-list-item-text">你最喜欢的艺术作品，告诉大家它们的------名图画，色彩，交织，撞色，线条雕塑装置当代古代现代作品的照片美我最喜欢的画群296795413进群发画，少说多发图，</div>
-
-                        </div>
-                    </li>
-
-                    <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left" data-am-scrollspy="{animation:'fade'}">
-                        <div class="am-u-sm-5 am-list-thumb">
-                            <a href="http://www.douban.com/online/11624755/">
-                                <img src="{{ asset('home/Temp-images/b2.jpg') }}" alt="我最喜欢的一张画"/>
-                            </a>
-                        </div>
-
-                        <div class=" am-u-sm-7 am-list-main">
-                            <h3 class="am-list-item-hd"><a href="http://www.douban.com/online/11624755/">我最喜欢的一张画</a></h3>
-
-                            <div class="am-list-item-text">你最喜欢的艺术作品，告诉大家它们的------名图画，色彩，交织，撞色，线条雕塑装置当代古代现代作品的照片美我最喜欢的画群296795413进群发画，少说多发图，</div>
-
-                        </div>
-                    </li>
-
-                    <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left" data-am-scrollspy="{animation:'fade'}">
-                        <div class="am-u-sm-5 am-list-thumb">
-                            <a href="http://www.douban.com/online/11624755/">
-                                <img src="{{ asset('home/Temp-images/b2.jpg') }}" alt="我最喜欢的一张画"/>
-                            </a>
-                        </div>
-
-                        <div class=" am-u-sm-7 am-list-main">
-                            <h3 class="am-list-item-hd"><a href="http://www.douban.com/online/11624755/">我最喜欢的一张画</a></h3>
-
-                            <div class="am-list-item-text">你最喜欢的艺术作品，告诉大家它们的------名图画，色彩，交织，撞色，线条雕塑装置当代古代现代作品的照片美我最喜欢的画群296795413进群发画，少说多发图，</div>
-
-                        </div>
-                    </li>
-
-                    <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left" data-am-scrollspy="{animation:'fade'}">
-                        <div class="am-u-sm-5 am-list-thumb">
-                            <a href="http://www.douban.com/online/11624755/">
-                                <img src="{{ asset('home/Temp-images/b2.jpg') }}" alt="我最喜欢的一张画"/>
-                            </a>
-                        </div>
-
-                        <div class=" am-u-sm-7 am-list-main">
-                            <h3 class="am-list-item-hd"><a href="http://www.douban.com/online/11624755/">我最喜欢的一张画</a></h3>
-
-                            <div class="am-list-item-text">你最喜欢的艺术作品，告诉大家它们的------名图画，色彩，交织，撞色，线条雕塑装置当代古代现代作品的照片美我最喜欢的画群296795413进群发画，少说多发图，</div>
-
-                        </div>
-                    </li>
-
-                    <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left" data-am-scrollspy="{animation:'fade'}">
-                        <div class="am-u-sm-5 am-list-thumb">
-                            <a href="http://www.douban.com/online/11624755/">
-                                <img src="{{ asset('home/Temp-images/b2.jpg') }}" alt="我最喜欢的一张画"/>
-                            </a>
-                        </div>
-
-                        <div class=" am-u-sm-7 am-list-main">
-                            <h3 class="am-list-item-hd"><a href="http://www.douban.com/online/11624755/">我最喜欢的一张画</a></h3>
-
-                            <div class="am-list-item-text">你最喜欢的艺术作品，告诉大家它们的------名图画，色彩，交织，撞色，线条雕塑装置当代古代现代作品的照片美我最喜欢的画群296795413进群发画，少说多发图，</div>
-
-                        </div>
-                    </li>
-
+                    @endforeach
 
                 </ul>
             </div>
@@ -238,90 +163,23 @@
             <div class="am-hide-sm">
                 <div data-am-widget="titlebar" class="am-titlebar am-titlebar-default">
                     <h2 class="am-titlebar-title ">
-                        专家牛人
+
+                        专家达人
                     </h2>
-                    <nav class="am-titlebar-nav">
-                        <a href="#more" onClick="$('.case').hide();$('#youxi').show();">游戏案例</a>
-                        <a href="#more" onClick="$('.case').hide();$('#yingxiao').show();">营销案例</a>
-                        <a href="#more" onClick="$('.case').hide();$('#gongju').show();">工具案例</a>
-                    </nav>
                 </div>
-
-
                 <div id="youxi" class="case am-animation-slide-left">
                     <ul class="am-gallery am-avg-sm-2 am-avg-md-4 am-avg-lg-4 am-gallery-overlay" data-am-gallery="{ pureview: true }" >
+                        @foreach($expert as $ex)
                         <li>
                             <div class="am-gallery-item">
-                                <a href="{{ asset('home/Temp-images/dd.jpg') }}">
-                                    <img src="{{ asset('home/Temp-images/cc.jpg') }}" data-replace-img="{{ asset('home/Temp-images/dd.jpg') }}" alt="远方 有一个地方 那里种有我们的梦想"/>
-                                    <h3 class="am-gallery-title">远方 有一个地方 那里种有我们的梦想</h3>
-                                    <div class="am-gallery-desc">2375-09-26</div>
+                                <a href="">
+                                    <img src="{{ asset('image/'.$ex->photo) }}" style="width: 184px;height: 184px;" class="face" alt="远方 有一个地方 那里种有我们的梦想"/>
+                                    <h3 class="am-gallery-title" style="text-align: center;">{{ $ex->nickname }}</h3>
                                 </a>
                             </div>
                         </li>
-                        <li>
-                            <div class="am-gallery-item">
-                                <a href="{{ asset('home/Temp-images/dd.jpg') }}">
-                                    <img src="{{ asset('home/Temp-images/cc.jpg') }}" data-replace-img="{{ asset('home/Temp-images/dd.jpg') }}" alt="远方 有一个地方 那里种有我们的梦想"/>
-                                    <h3 class="am-gallery-title">远方 有一个地方 那里种有我们的梦想</h3>
-                                    <div class="am-gallery-desc">2375-09-26</div>
-                                </a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="am-gallery-item">
-                                <a href="{{ asset('home/Temp-images/dd.jpg') }}">
-                                    <img src="{{ asset('home/Temp-images/cc.jpg') }}" data-replace-img="{{ asset('home/Temp-images/dd.jpg') }}" alt="远方 有一个地方 那里种有我们的梦想"/>
-                                    <h3 class="am-gallery-title">远方 有一个地方 那里种有我们的梦想</h3>
-                                    <div class="am-gallery-desc">2375-09-26</div>
-                                </a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="am-gallery-item">
-                                <a href="{{ asset('home/Temp-images/dd.jpg') }}">
-                                    <img src="{{ asset('home/Temp-images/cc.jpg') }}" data-replace-img="{{ asset('home/Temp-images/dd.jpg') }}" alt="远方 有一个地方 那里种有我们的梦想"/>
-                                    <h3 class="am-gallery-title">远方 有一个地方 那里种有我们的梦想</h3>
-                                    <div class="am-gallery-desc">2375-09-26</div>
-                                </a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="am-gallery-item">
-                                <a href="{{ asset('home/Temp-images/dd.jpg') }}">
-                                    <img src="{{ asset('home/Temp-images/cc.jpg') }}" data-replace-img="{{ asset('home/Temp-images/dd.jpg') }}" alt="远方 有一个地方 那里种有我们的梦想"/>
-                                    <h3 class="am-gallery-title">远方 有一个地方 那里种有我们的梦想</h3>
-                                    <div class="am-gallery-desc">2375-09-26</div>
-                                </a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="am-gallery-item">
-                                <a href="{{ asset('home/Temp-images/dd.jpg') }}">
-                                    <img src="{{ asset('home/Temp-images/cc.jpg') }}" data-replace-img="{{ asset('home/Temp-images/dd.jpg') }}" alt="远方 有一个地方 那里种有我们的梦想"/>
-                                    <h3 class="am-gallery-title">远方 有一个地方 那里种有我们的梦想</h3>
-                                    <div class="am-gallery-desc">2375-09-26</div>
-                                </a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="am-gallery-item">
-                                <a href="{{ asset('home/Temp-images/dd.jpg') }}">
-                                    <img src="{{ asset('home/Temp-images/cc.jpg') }}" data-replace-img="{{ asset('home/Temp-images/dd.jpg') }}" alt="远方 有一个地方 那里种有我们的梦想"/>
-                                    <h3 class="am-gallery-title">远方 有一个地方 那里种有我们的梦想</h3>
-                                    <div class="am-gallery-desc">2375-09-26</div>
-                                </a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="am-gallery-item">
-                                <a href="{{ asset('home/Temp-images/dd.jpg') }}">
-                                    <img src="{{ asset('home/Temp-images/cc.jpg') }}" data-replace-img="{{ asset('home/Temp-images/dd.jpg') }}" alt="远方 有一个地方 那里种有我们的梦想"/>
-                                    <h3 class="am-gallery-title">远方 有一个地方 那里种有我们的梦想</h3>
-                                    <div class="am-gallery-desc">2375-09-26</div>
-                                </a>
-                            </div>
-                        </li>
+                            @endforeach
+
                     </ul>
                 </div>
 
@@ -483,69 +341,14 @@
         </div>
     </div>
     <div class="am-u-sm-12 am-u-md-12 am-u-lg-4">
-        <div data-am-widget="titlebar" class="am-titlebar am-titlebar-default">
-            <h2 class="am-titlebar-title ">
-                热门回答
-            </h2>
-            <nav class="am-titlebar-nav">
-                <a href="#more">more &raquo;</a>
-            </nav>
-        </div>
-        <div data-am-widget="list_news" class="am-list-news am-list-news-default right-bg" data-am-scrollspy="{animation:'fade'}">
-                <ul class="am-list"  >
-                    <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left">
-                        <div class="am-u-sm-4 am-list-thumb">
-                            <a href="http://www.douban.com/online/11624755/">
-                                <img src="{{ asset('home/Temp-images/face.jpg') }}" class="face"/>
-                            </a>
-                        </div>
 
-                        <div class=" am-u-sm-8 am-list-main">
-                            <h3 class="am-list-item-hd"><a href="http://www.douban.com/online/11624755/">勾三古寺</a></h3>
 
-                            <div class="am-list-item-text">代码压缩和最小化。在这里，我们为你收集了9个最好的JavaScript压缩工具将帮</div>
-                        </div>
-                    </li>
-                    <hr data-am-widget="divider" style="" class="am-divider am-divider-default" />
-                    <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left">
-                        <div class="am-u-sm-4 am-list-thumb">
-                            <a href="http://www.douban.com/online/11624755/">
-                                <img src="{{ asset('home/Temp-images/face.jpg') }}" class="face"/>
-                            </a>
-                        </div>
-
-                        <div class=" am-u-sm-8 am-list-main">
-                            <h3 class="am-list-item-hd"><a href="http://www.douban.com/online/11624755/">勾三古寺</a></h3>
-
-                            <div class="am-list-item-text">代码压缩和最小化。在这里，我们为你收集了9个最好的JavaScript压缩工具将帮</div>
-
-                        </div>
-                    </li>
-                    <hr data-am-widget="divider" style="" class="am-divider am-divider-default" />
-                    <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left">
-                        <div class="am-u-sm-4 am-list-thumb">
-                            <a href="http://www.douban.com/online/11624755/">
-                                <img src="{{ asset('home/Temp-images/face.jpg') }}" class="face"/>
-                            </a>
-                        </div>
-
-                        <div class=" am-u-sm-8 am-list-main">
-                            <h3 class="am-list-item-hd"><a href="http://www.douban.com/online/11624755/">勾三古寺</a></h3>
-
-                            <div class="am-list-item-text">代码压缩和最小化。在这里，我们为你收集了9个最好的JavaScript压缩工具将帮</div>
-
-                        </div>
-                    </li>
-                </ul>
-        </div>
 
         <div data-am-widget="titlebar" class="am-titlebar am-titlebar-default">
             <h2 class="am-titlebar-title ">
-                合作专栏
+                提问问题
             </h2>
-            <nav class="am-titlebar-nav">
-                <a href="#more">more &raquo;</a>
-            </nav>
+
         </div>
 
         <div data-am-widget="list_news" class="am-list-news am-list-news-default right-bg" data-am-scrollspy="{animation:'fade'}">
@@ -597,100 +400,61 @@
         </div>
         <div data-am-widget="titlebar" class="am-titlebar am-titlebar-default">
             <h2 class="am-titlebar-title ">
-               推荐
+
+               最新问题
             </h2>
             <nav class="am-titlebar-nav">
-                <a href="#more">more &raquo;</a>
+                <a href="{{ 'ngavig/whole/1' }}">more &raquo;</a>
+
             </nav>
         </div>
 
         <div data-am-widget="list_news" class="am-list-news am-list-news-default right-bg" data-am-scrollspy="{animation:'fade'}">
             <ul class="am-list"  >
+
+                @foreach($newQues as $new)
                 <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left">
                     <div class="am-u-sm-4 am-list-thumb">
-                        <a href="http://www.douban.com/online/11624755/">
-                            <img src="{{ asset('home/Temp-images/face.jpg') }}"/>
-                        </a>
+                            <img src="{{ asset('image/'.$new->photo) }}"/>
                     </div>
 
                     <div class=" am-u-sm-8 am-list-main">
-                        <h3 class="am-list-item-hd"><a href="http://www.douban.com/online/11624755/">勾三古寺</a></h3>
+                        <h3 class="am-list-item-hd one" title="{{ $new->name }}">{{ $new->name }}</h3>
 
-                        <div class="am-list-item-text">代码压缩和最小化。在这里，我们为你收集了9个最好的JavaScript压缩工具将帮</div>
+                        <div style="font-size: 14px;">
+                            <br>
+                            作者：{{ $new->uname }}<br>
+                            提问时间：{{ $new->time }}<a href="{{ URL('ngavig/answer/'.$new->id) }}">点击进入>></a>
+                        </div>
                     </div>
                 </li>
                 <hr data-am-widget="divider" style="" class="am-divider am-divider-default" />
-                <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left">
-                    <div class="am-u-sm-4 am-list-thumb">
-                        <a href="http://www.douban.com/online/11624755/">
-                            <img src="{{ asset('home/Temp-images/face.jpg') }}"/>
-                        </a>
-                    </div>
-
-                    <div class=" am-u-sm-8 am-list-main">
-                        <h3 class="am-list-item-hd"><a href="http://www.douban.com/online/11624755/">勾三古寺</a></h3>
-
-                        <div class="am-list-item-text">代码压缩和最小化。在这里，我们为你收集了9个最好的JavaScript压缩工具将帮</div>
-
-                    </div>
-                </li>
-                <hr data-am-widget="divider" style="" class="am-divider am-divider-default" />
-                <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left">
-                    <div class="am-u-sm-4 am-list-thumb">
-                        <a href="http://www.douban.com/online/11624755/">
-                            <img src="{{ asset('home/Temp-images/face.jpg') }}"/>
-                        </a>
-                    </div>
-
-                    <div class=" am-u-sm-8 am-list-main">
-                        <h3 class="am-list-item-hd"><a href="http://www.douban.com/online/11624755/">勾三古寺</a></h3>
-
-                        <div class="am-list-item-text">代码压缩和最小化。在这里，我们为你收集了9个最好的JavaScript压缩工具将帮</div>
-
-                    </div>
-                </li>
+                @endforeach
             </ul>
         </div>
+        <div data-am-widget="titlebar" class="am-titlebar am-titlebar-default">
+            <h2 class="am-titlebar-title ">
+                广告专区
+            </h2>
+        </div>
+        <div data-am-widget="list_news" class="am-list-news am-list-news-default right-bg" data-am-scrollspy="{animation:'fade'}">
+            <ul class="am-list" >
+                @foreach($ad2 as $a2)
+                    <li  class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left">
+                        <div class="am-u-sm-3 am-list-thumb" style="">
+                            <a href="{{  $a2->url }}">
+                                <img style="height: 30px;width: 30px;float: right;" src="{{ asset('image/'.$a2->pic) }}" class="face"/>
+                            </a>
+                        </div>
 
-        <ul class="am-gallery am-avg-sm-1
-  am-avg-md-1 am-avg-lg-1 am-gallery-default" data-am-gallery="{ pureview: true }" >
-            <li>
-                <div class="am-gallery-item">
-                    <a href="http://s.amazeui.org/media/i/demos/bing-1.jpg" class="">
-                        <img  src="http://s.amazeui.org/media/i/demos/bing-1.jpg"  alt="远方 有一个地方 那里种有我们的梦想"/>
-                        <h3 class="am-gallery-title">远方 有一个地方 那里种有我们的梦想</h3>
-                        <div class="am-gallery-desc">
-                            <div class="am-fr">北京</div>
-                            <div class="am-fl">2016/11/11</div>
+                        <div class=" am-u-sm-9 am-list-main">
+                            <h3 class="am-list-item-hd"><a class="one" href="{{  $a2->url }}" title="{{ $a2->title }}">{{ $a2->title }}</a></h3>
                         </div>
-                    </a>
-                </div>
-            </li>
-            <li>
-                <div class="am-gallery-item">
-                    <a href="http://s.amazeui.org/media/i/demos/bing-2.jpg" class="">
-                        <img src="http://s.amazeui.org/media/i/demos/bing-2.jpg"  alt="某天 也许会相遇 相遇在这个好地方"/>
-                        <h3 class="am-gallery-title">某天 也许会相遇 相遇在这个好地方</h3>
-                        <div class="am-gallery-desc">
-                            <div class="am-fr">北京</div>
-                            <div class="am-fl">2016/11/11</div>
-                        </div>
-                    </a>
-                </div>
-            </li>
-            <li>
-                <div class="am-gallery-item">
-                    <a href="http://s.amazeui.org/media/i/demos/bing-2.jpg" class="">
-                        <img src="http://s.amazeui.org/media/i/demos/bing-2.jpg"  alt="某天 也许会相遇 相遇在这个好地方"/>
-                        <h3 class="am-gallery-title">某天 也许会相遇 相遇在这个好地方</h3>
-                        <div class="am-gallery-desc">
-                            <div class="am-fr">北京</div>
-                            <div class="am-fl">2016/11/11</div>
-                        </div>
-                    </a>
-                </div>
-            </li>
-        </ul>
+                    </li>
+                    <hr data-am-widget="divider" style="" class="am-divider am-divider-default" />
+                @endforeach
+            </ul>
+        </div>
 
     </div>
 </div>

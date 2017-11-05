@@ -47,13 +47,13 @@
 					<li class="person">
 						<ul>
 							<li><a href="{{ URL('/data')}}">个人中心</a></li>
-							<li> <a href="{{ URL('#')}}">修改密码</a></li>
+							<li> <a href="{{ URL('/alter')}}">修改密码</a></li>
 							<li> <a href="ask.html">手机验证</a></li>
 						</ul>
 					</li>
 					<li class="person">
 						<ul>
-							<li> <a href="{{ URL('#')}}">我的提问</a></li>
+							<li> <a href="{{ URL('/quiz')}}">我的提问</a></li>
 							<li> <a href="{{ URL('#')}}">我的回复</a></li>
 						</ul>
 					</li>

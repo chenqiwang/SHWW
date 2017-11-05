@@ -32,18 +32,21 @@
             <div class="am-list-news-bd">
                 <ul class="am-list">
                     @foreach( $problem as $p )
+                    @if( $p->status == 0 )
                     <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left" >
                         <div class="am-u-sm-5 am-list-thumb">
                         @foreach( $user as $u )
                         @if( $u->id == $p->uid )
-                            <a href="/ngavig/answer/{{$p->id}}/{{$u->id}}">
+                            <a href="/ngavig/answer/{{$p->id}}">
+
                                 <img src="{{ asset('image/'.$u->photo) }}" height="100" width="80" alt="{{ $p->name }}"/>
                             </a>
                        
                         </div>
 
                         <div class=" am-u-sm-7 am-list-main">
-                            <h3 class="am-list-item-hd"><a href="/ngavig/answer/{{$p->id}}/{{$u->id}}">{{ $p->name }}</a></h3>
+                            <h3 class="am-list-item-hd"><a href="/ngavig/answer/{{$p->id}}">{{ $p->name }}</a></h3>
+
 
                             <div class="am-list-item-text"><?= date('Y-m-d',$p->tiem); ?></div>
 
@@ -51,6 +54,7 @@
                         @endif
                         @endforeach
                     </li>
+                    @endif
 
                     @endforeach
 

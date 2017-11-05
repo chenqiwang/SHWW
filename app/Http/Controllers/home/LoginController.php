@@ -9,6 +9,8 @@ use App\Models\User_infoModel;
 use App\Models\User_RegloginModel;
 use App\Http\Controllers\Controller;
 use App\Org\SmsCode;
+use Illuminate\Support\Facades\Redis;
+
 use Mockery\Exception;
 use DB;
 
@@ -36,21 +38,33 @@ class LoginController extends Controller
         $info = $request->except('_token');
         $phone = $info['phone'];
         $pwd = $info['pwd'];
+        if (Redis::exists('HASH:'.$phone))
+        {
+            $user = Redis::hGetall('HASH:'.$phone);
+            session(['user' => $user]);
+            return redirect('/');
+        }
+
         //$pwd = md5($pwd);
         $res = User_RegloginModel::where('phone',$phone)->first();
         if ($res){
             if ($res->pwd == $pwd) {
                 $res = User_infoModel::where('rid', $res->id)->first();
-                $nickname = $res->nickname;
-                session_start();
-                $request->session()->put('user',$nickname);
-                return redirect('/');
-            }else{
-                //回到上一页
-                return back()->with('msg', '登录失败：用户名或密码错误');
+                //存到Redis的HASH中
+                $key = 'HASH:'+$phone;
+                $users = [ 'id'=>$res->id, 'name' => $res->name, 'age' => $res->age, 'sex' => $res->sex,
+                           'phone' => $phone, 'pwd' => $pwd, 'nickname' => $res->nickname, 'email' => $res->email, 'score' => $res->score,
+                           'photo' => $res->photo ];
+                $info = \Redis::hMset($key, $users);
+                if ($info) {
+                    $user = Redis::hGetall('HASH:'+$phone);
+                    $request->session()->put('user', $user);
+                    return redirect('/');
+                } else {
+                    return back()->with('msg', '登录失败：用户名或密码错误');
+                }
             }
         }else{
-            //回到上一页
             return back()->with('msg', '登录失败：用户名或密码错误');
         }
     }
@@ -97,7 +111,7 @@ class LoginController extends Controller
             $phone = $info['phone'];
             $pwd = $info['pwd'];
             //密码加密
-            $pwd = md5($pwd);
+            //$pwd = md5($pwd);
             if ($code == $scode) {
                 $res = User_RegloginModel::where('phone', $phone)->first();
                 if (!$res){

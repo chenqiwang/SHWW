@@ -23,6 +23,7 @@ class essenceController extends Controller
      */
     public function index()
     {
+
         //取采纳率大于50的帖子
         $price = IntegralModel::where('adopt' ,'>', '50')->get();
         //用户表

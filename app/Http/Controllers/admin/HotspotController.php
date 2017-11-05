@@ -18,6 +18,7 @@ class HotspotController extends Controller
     public function index()
     {           
         //
+
     $res= DB::table('tab_problem')
         ->join('tab_integral','tab_problem.id','=','tab_integral.pid')
         ->join('tab_thumbs_up','tab_problem.id','=','tab_thumbs_up.aid')
@@ -32,7 +33,7 @@ class HotspotController extends Controller
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
-     
+     */
     public function create()
     {
         //
