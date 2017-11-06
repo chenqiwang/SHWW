@@ -45,6 +45,8 @@ Route::group(['prefix' => 'ngavig'] ,function(){
     Route::get('/expert', 'home\expertController@index');
     //发帖
     Route::post('/supo', 'home\SupoController@faTie');
+    //热搜
+    Route::post('/resou', 'home\HomeController@reSou');
 });
 
 //后台管理操作,'middleware' => 'isLogin'

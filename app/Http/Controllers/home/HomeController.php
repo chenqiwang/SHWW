@@ -56,4 +56,19 @@ class HomeController extends Controller
         //在Home页面显示
         return view('home.home', ['notice' => $notice],['newQues' => $newQues,'zeroQues'=>$zeroQues,'hotQues' => $hotQues,'expert' => $expert,'supo' => $supo, 'ad2'=>$ad2]);
     }
+    public function reSou(Request $request)
+    {
+        $where = [];
+        $ob = DB::table('tab_problem');
+        // 判断是否搜索了name字段
+        if($request->has('name')){
+            // 获取用户搜索的Name字段的值
+            $name = $request->input('name');
+            $where['name'] = $name;
+            //给查询语句添加上where条件
+            $ob->where('name', 'like', '%'.$name.'%');
+        }
+        $list = $ob->paginate(10);
+        return view('home.resou',['users'=>$list, 'where'=>$where]);
+    }
 }

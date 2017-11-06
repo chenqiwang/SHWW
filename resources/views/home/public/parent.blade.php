@@ -79,6 +79,12 @@
                 </li>
                 @endif
                 @endforeach
+            <ul class="am-nav am-nav-pills am-topbar-nav">
+                <form action="/ngavig/resou" method="post">
+                    {{ csrf_field() }}
+                    <input type="text"  name="name">
+                    <button type="submit" >提交</button>
+                </form>
             </ul>
             @if(session('user'))
                 <div style="height: 70px;width: 260px; float: right">
@@ -142,5 +148,8 @@
     
 </footer>
 </body>
+<script>
+    
+</script>
 </html>
 <!--尾部结束-->

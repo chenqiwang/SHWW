@@ -100,13 +100,8 @@
                                                                         <div class="action">
                                                                             <span class="js-operate" style="visibility: hidden;">
                                                                             </span>
-
-                                                                            @if( $thunbs->aid == $a->id || $thunbs->status == 0 )
-                                                                           <a href="javascript:;" id="show{{$a->id}}" onclick="dian({{ $a->id }})"><img id="thumb{{ $a->id }}" height="15" widht="15" src="{{ asset('image/give.png') }}"></a>
-                                                                           @else
-                                                                           <a href="javascript:;" id="show{{$a->id}}" onclick="dian({{ $a->id }})"><img id="thumb{{ $a->id }}" height="15" widht="15" src="{{ asset('image/give1.png') }}"></a>
-                                                                           @endif
-
+                                                                            
+                                                                           <a href="javascript:;" id="show{{$a->id}}" onclick="dian({{$a->id}})"><img id="thumb{{ $a->id }}" height="15" widht="15" src="{{ asset('image/give.png') }}"></a>
                                                                         </div>
                                                                     </div>
                                                                     <div class="js-form-area add-area"></div>
@@ -170,11 +165,11 @@
                                     var thumb = document.getElementById('thumb'+id);
 
                                     $.get("{{ URL('/ngavig/dian') }}",{'id':id}, function(data){
-
                                         if(data){
                                             thumb.setAttribute('src', "{{ asset('image/give1.png') }}");
-                                            thumb.setAttribute('onclick', '');
+                                            thumb.setAttribute('onclick','');
                                             thumb.setAttribute('href','');
+                                            return thumb;
                                         }
                                     });
                                 }

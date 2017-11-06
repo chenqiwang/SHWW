@@ -35,7 +35,7 @@ class WholeController extends Controller
         //tab_label表的ID
         $lid = $alabel->id;
         //用tab_label表的ID取查tab_problem的id
-        $problem = ProblemModel::where('lid', $lid)->get();
+        $problem = ProblemModel::where('lid', $lid)->paginate(1);
         //查tab_user_info表在视图显示头像
         $user = User_infoModel::get();
         return view('home.emotion',compact('alabel','problem','user'));

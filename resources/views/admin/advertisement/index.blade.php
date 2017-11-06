@@ -54,17 +54,18 @@
                                                 <th>操作</th>
                                             </tr>
                                         </thead>
+                                        @foreach( $users as $us )
                                         <tbody>
                                             <tr class="gradeX">
                                                 <td>
-                                                    <img src="{{ asset('admin/img/k.jpg') }}" class="tpl-table-line-img" alt="">
+                                                    <img src="{{ asset('ad/'.$us->pic) }}" class="tpl-table-line-img" alt="">
                                                 </td>
-                                                <td class="am-text-middle">http://www.baidu.com</td>
-                                                <td class="am-text-middle">百度</td>
-                                                <td class="am-text-middle">2016-09-26</td>
+                                                <td class="am-text-middle">{{ $us->url }}</td>
+                                                <td class="am-text-middle">{{ $us->title }}</td>
+                                                <td class="am-text-middle">{{ $us->time }}</td>
                                                 <td class="am-text-middle">
                                                     <div class="tpl-table-black-operation">
-                                                        <a href="{{ URL('admin/ad/{id}/edit') }}">
+                                                        <a href='{{ URL("admin/ad/$us->id/edit") }}'>
                                                             <i class="am-icon-pencil"></i> 编辑
                                                         </a>
                                                         <a href="javascript:;" class="tpl-table-black-operation-del">
@@ -75,23 +76,21 @@
                                             </tr>
                                             <!-- more data -->
                                         </tbody>
+                                        @endforeach
                                     </table>
                                 </div>
                                 <div class="am-u-lg-12 am-cf">
 
-                                    <div class="am-fr">
-                                        <ul class="am-pagination tpl-pagination">
-                                            <li class="am-disabled"><a href="#">«</a></li>
-                                            <li class="am-active"><a href="#">1</a></li>
-                                            <li><a href="#">2</a></li>
-                                            <li><a href="#">3</a></li>
-                                            <li><a href="#">»</a></li>
-                                        </ul>
-                                    </div>
+                                    {!! $users->render() !!}
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+@if( session('msg') )
+        <script>
+            alert({{ session('msg') }});
+        </script>
+@endif
 @endsection
