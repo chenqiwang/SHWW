@@ -23,9 +23,8 @@ class DataController extends Controller
      */
     public function index()
     {
-        $ser=DB::table('tab_user_info')->where('id',3)
+        $ser=User_infoModel::where('id',(session('user')['id']))
             ->get();
-           
        return view('home.individual.data',compact('ser'));
 
     }

@@ -32,22 +32,22 @@
             <div data-am-widget="slider" class="am-slider am-slider-c1" data-am-slider='{"directionNav":false}' >
                 <ul class="am-slides">
                     <li>
-                        <a href="events_show.html"><img src="{{ asset('home/Temp-images/bb1.jpg') }}"></a>
+                        <a href="#"><img src="{{ asset('home/Temp-images/bb1.jpg') }}"></a>
                         <div class="am-slider-desc">远方 有一个地方 那里种有我们的梦想</div>
 
                     </li>
                     <li>
-                        <a href="events_show.html"><img src="{{ asset('home/Temp-images/bb2.jpg') }}"></a>
+                        <a href="#"><img src="{{ asset('home/Temp-images/bb2.jpg') }}"></a>
                         <div class="am-slider-desc">某天 也许会相遇 相遇在这个好地方</div>
 
                     </li>
                     <li>
-                        <a href="events_show.html"><img src="{{ asset('home/Temp-images/bb3.jpg') }}"></a>
+                        <a href="#"><img src="{{ asset('home/Temp-images/bb3.jpg') }}"></a>
                         <div class="am-slider-desc">不要太担心 只因为我相信 终会走过这条遥远的道路</div>
 
                     </li>
                     <li>
-                        <a href="events_show.html"><img src="{{ asset('home/Temp-images/bb4.jpg') }}"></a>
+                        <a href="#"><img src="{{ asset('home/Temp-images/bb4.jpg') }}"></a>
                         <div class="am-slider-desc">OH PARA PARADISE 是否那么重要 你是否那么地遥远</div>
                     </li>
                 </ul>
@@ -86,10 +86,10 @@
             </div>
         </li>
         <li>
-            <div class="am-gallery-item">
+            <div class="am-gallery-item" style="height:180px;">
               <a href="#">
-                    <img src="{{ asset('home/Temp-images/tempnews.png') }}"  alt="远方 有一个地方 那里种有我们的梦想"/>
-                    <h3 class="am-gallery-title">远方 有一个地方 那里种有我们的梦想</h3>
+                    <img src="{{ asset('ad/ad1.jpg') }}" style="height:180px;"  alt="欢迎来到山海问问，广告位等你呢？"/>
+                    <h3 class="am-gallery-title">欢迎来到山海问问，广告位等你呢？</h3>
                     <div class="am-gallery-desc">2375-09-26</div>
                 </a>
             </div>
@@ -97,18 +97,18 @@
         <li>
             <div class="am-gallery-item">
                <h1>大家在问</h1>
-               <a href="/b/nYw7v9vXF.html" target="_blank">东奥会计在线继续教育如何取消课堂答题</a>
-               <a href="/b/nYw7v9vXF.html" target="_blank">东奥会计在线继续教育如何取消课堂答题</a>
-               <a href="/b/nYw7v9vXF.html" target="_blank">东奥会计在线继续教育如何取消课堂答题</a>
-               <a href="/b/nYw7v9vXF.html" target="_blank">东奥会计在线继续教育如何取消课堂答题</a>
-               <a href="/b/nYw7v9vXF.html" target="_blank">东奥会计在线继续教育如何取消课堂答题</a>
+               <a href="/ngavig/answer/10" class="zero" target="_blank">在兄弟连学习PHP如何？</a>
+               <a href="/ngavig/answer/10" class="zero" target="_blank">苹果旗舰店和苹果官网是如何处理14天无理由退货机器的？</a>
+               <a href="/ngavig/answer/10" class="zero" target="_blank">兄弟连真的是变态严管么？</a>
+               <a href="/ngavig/answer/10" class="zero" target="_blank">这五个月的收获如何？</a>
+               <a href="/ngavig/answer/10" class="zero" target="_blank">感谢兄弟连五个月的培训！</a>
             </div>
         </li>
         <li>
-            <div class="am-gallery-item">
-                <a href="#">
-                    <img src="{{ asset('home/Temp-images/tempnews.png') }}"  alt="远方 有一个地方 那里种有我们的梦想"/>
-                    <h3 class="am-gallery-title">远方 有一个地方 那里种有我们的梦想</h3>
+            <div class="am-gallery-item" style="height:180px;">
+              <a href="#">
+                    <img src="{{ asset('ad/ad1.jpg') }}" style="height:180px;"  alt="欢迎来到山海问问，广告位等你呢？"/>
+                    <h3 class="am-gallery-title">欢迎来到山海问问，广告位等你呢？</h3>
                     <div class="am-gallery-desc">2375-09-26</div>
                 </a>
             </div>
@@ -173,7 +173,7 @@
                         <li>
                             <div class="am-gallery-item">
                                 <a href="">
-                                    <img src="{{ asset('image/'.$ex->photo) }}" style="width: 184px;height: 184px;" class="face" alt="远方 有一个地方 那里种有我们的梦想"/>
+                                    <img src="{{ asset('pic/'.$ex->photo) }}" style="width: 184px;height: 184px;" class="face"/>
                                     <h3 class="am-gallery-title" style="text-align: center;">{{ $ex->nickname }}</h3>
                                 </a>
                             </div>
@@ -346,7 +346,7 @@
 
         <div data-am-widget="titlebar" class="am-titlebar am-titlebar-default">
             <h2 class="am-titlebar-title ">
-                提问问题
+                提问
             </h2>
 
         </div>
@@ -422,9 +422,8 @@
                         <h3 class="am-list-item-hd one" title="{{ $new->name }}">{{ $new->name }}</h3>
 
                         <div style="font-size: 14px;">
-                            <br>
                             作者：{{ $new->uname }}<br>
-                            提问时间：{{ $new->time }}<a href="{{ URL('ngavig/answer/'.$new->id) }}">点击进入>></a>
+                            时间：{{ $new->time }}<a href="{{ URL('ngavig/answer/'.$new->id) }}">点击进入>></a>
                         </div>
                     </div>
                 </li>

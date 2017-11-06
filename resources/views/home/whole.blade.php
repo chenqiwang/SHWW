@@ -65,7 +65,7 @@
 
                         <div class="am-u-sm-8 am-u-md-7 am-u-lg-7">
                             <h3><a href="{{ $q->url }}/{{ $q->id }}">{{ $q->name }}</a></h3>
-                            <h4>0000个关注</h4>
+                            <h4>{{ rand(100,999) }}个关注</h4>
                             <p><span></span></p>
 
                         </div>

@@ -62,9 +62,6 @@
                                                         <a href="{{ URL('admin/user/'.$v->id.'/edit') }}">
                                                             <i class="am-icon-pencil"></i> 编辑
                                                         </a>
-                                                        <a href="javascript:;" class="tpl-table-black-operation-del">
-                                                            <i class="am-icon-gear am-icon-spin"></i> 禁止回复
-                                                        </a>            
                                                         <a href="{{ URL('admin/user/'.$v->id) }}" class="tpl-table-black-operation-del">
                                                             <i class="am-icon-archive"></i> 用户详情
                                                         </a>

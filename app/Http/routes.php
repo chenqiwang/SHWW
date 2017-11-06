@@ -18,11 +18,14 @@ Route::get('/','home\HomeController@index');
 //前台登录and注册
 Route::get('/login', 'home\LoginController@index');
 Route::post('/login', 'home\LoginController@doLogin');
+
 Route::get('/register', 'home\LoginController@register');
 Route::get('/getCode','home\LoginController@getCode');
 Route::post('/register', 'home\LoginController@doRegister');
 Route::get('/doLogOut','home\LoginController@dologOut');
-
+Route::get('/forget', 'home\LoginController@forGet');
+Route::post('/forget', 'home\LoginController@doForget');
+Route::post('/doreset', 'home\LoginController@doReset');
 
  //个人中心
 Route::get('/center','home\CenterController@index');
@@ -51,8 +54,8 @@ Route::group(['prefix' => 'ngavig'] ,function(){
     Route::get('/expert', 'home\expertController@index');
 });
 
-//后台管理操作,'middleware' => 'isLogin'
-Route::group(['prefix' => 'admin'], function () {
+//后台管理操作,
+Route::group(['prefix' => 'admin','middleware' => 'isLogin'], function () {
 	//显示后台首页
 	Route::get('/index', 'admin\IndexController@index');
 	//后台用户管理操作

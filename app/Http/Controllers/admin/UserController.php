@@ -38,7 +38,7 @@ class UserController extends Controller
             ->join('tab_user_reglogin', 'tab_user_info.rid', '=', 'tab_user_reglogin.id')
             ->select('tab_user_info.*', 'tab_user_reglogin.phone');
         }
-        $list = $ob->paginate(1);
+        $list = $ob->paginate(5);
         return view('admin.user.index', ['list' => $list, 'where' => $where]);
 
     }

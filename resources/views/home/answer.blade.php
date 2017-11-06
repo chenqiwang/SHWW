@@ -22,7 +22,7 @@
                                                 <div class="hd">
 
                                                     <h2 class="title js-ask-title">
-                                                        <img width="80" style="float: left;" height="80" src="{{ asset('image/'. $user->photo) }}">{{ $problem->name }}
+                                                        <img width="80" style="float: left;" height="80" src="{{ asset('pic/'. $user->photo) }}">{{ $problem->name }}
                                                     </h2>
                                                     
                                                     <div class="mod-user-label">
@@ -74,12 +74,12 @@
                                                                     <div class="l-ans clearfix">
                                                                         <div class="info">
                                                                             <a target="_blank" href="" class="pic js-ordinary-card">
-                                                                                <img src="{{ asset('image/'.$a->photo) }}" width="41" height="41"></a>
+                                                                                <img src="{{ asset('pic/'.$a->photo) }}" width="41" height="41"></a>
                                                                         </div>
                                                                         <div     class="text">
                                                                             <div style="margin-bottom:2px;display:inline;">
                                                                                 <span>
-                                                                                    <a target="_blank" class="ask-author  js-ordinary-card" index="148309030">{{ $a->nickname }}</a></span>
+                                                                                    <a target="_blank" class="ask-author  js-ordinary-card" >{{ $a->nickname }}</a></span>
                                                                             </div>
                                                                             <span title="采纳率越高回答质量越高">
                                                                                 <span style="margin-right:0;" class="o"></span></span>

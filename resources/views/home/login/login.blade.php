@@ -27,7 +27,7 @@
 				<input id="pwd" onblur="checkPwd()" type="password" name="pwd" placeholder="密码(6~20位)">
 			</div>
 			<p class="forget-password">
-				<a href="forget.html">忘记密码？</a>
+				<a href="{{ URL('forget') }}">忘记密码？</a>
 			</p>
 			<button type="submit" class="ui-button ui-button--primary">登录</button>
 		</div>

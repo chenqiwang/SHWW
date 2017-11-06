@@ -16,7 +16,7 @@ use Flc\Dysms\Request\SendSms;
 class SmsCode
 {
     public static function sendSms($phone){
-        /*$config = [
+        $config = [
             'accessKeyId'    => 'LTAIAqsGt41tIx5C',
             'accessKeySecret' => 'ZTvsl5Igj3dJRD8HfyU5HjtKvCwnch',
         ];
@@ -27,8 +27,7 @@ class SmsCode
         $sendSms->setSignName('山海问问');
         $sendSms->setTemplateCode('SMS_105915034');
         $sendSms->setTemplateParam(['code' => $code]);
-        $client->execute($sendSms);*/
-        $code = 123456;
+        $client->execute($sendSms);
         return $code;
     }
 }

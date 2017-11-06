@@ -24,14 +24,14 @@ class QuestionController extends Controller{
                 $join->on('tab_problem.uid','=','tab_user_info.id');
             })->join('tab_label',function($join){
                 $join->on('tab_problem.lid','=','tab_label.id');
-            })->where('tab_problem.status', 1)
+            })->where('tab_problem.status', 0)
               ->where('tab_problem.name', 'like','%'.$name.'%');
         } else {
             $ob = DB::table('tab_problem')->select('tab_problem.*','tab_user_info.nickname as uname','tab_label.name as lname')->join('tab_user_info',function($join){
                 $join->on('tab_problem.uid','=','tab_user_info.id');
             })->join('tab_label',function($join){
                 $join->on('tab_problem.lid','=','tab_label.id');
-            })->where('tab_problem.status', 1);
+            })->where('tab_problem.status', 0);
         }
         $list = $ob->paginate(5);
         return view('admin.question.index',['list' => $list, 'where' => $where]);

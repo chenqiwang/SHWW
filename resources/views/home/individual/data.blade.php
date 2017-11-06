@@ -14,7 +14,7 @@
 
 							<div class="filePic">
 								<input type="file" class="inputPic" allowexts="gif,jpeg,jpg,png,bmp" accept="image/*">
-								<img class="am-circle am-img-thumbnail" src="home/individual/images/1.jpg" alt="" />
+								<img class="am-circle am-img-thumbnail" src="{{ asset('pic/1.jpg') }}" alt="" />
 							</div>
 
 							<p class="am-form-help">头像</p>
@@ -36,9 +36,9 @@
 						</div>
 
 						<!--个人信息 -->
-						@foreach($ser as $a)
-							@endforeach
+						
 						<div class="info-main">
+							@foreach($ser as $a)
 							<form class="am-form am-form-horizontal">
 
 								<div class="am-form-group">
@@ -60,13 +60,21 @@
 								<div class="am-form-group">
 									<label class="am-form-label">性别</label>
 									<div class="am-form-content sex">
+										@if($a->sex == 1)
 										<label class="am-radio-inline">
-											<input type="radio" name="radio10" value="{{ $a->sex }}" > 男
+											<input type="radio" name="male" value="1" checked> 男
 										</label>
 										<label class="am-radio-inline">
-											<input type="radio" name="radio10" value="female" > 女
+											<input type="radio" name="famale" value="0" > 女
 										</label>
-										
+										@else
+										<label class="am-radio-inline">
+											<input type="radio" name="male" value="1" > 男
+										</label>
+										<label class="am-radio-inline">
+											<input type="radio" name="famale" value="0" checked> 女
+										</label>
+										@endif
 									</div>
 								</div>
 
@@ -95,6 +103,7 @@
 								</div>
 
 							</form>
+							@endforeach
 						</div>
 
 					</div>

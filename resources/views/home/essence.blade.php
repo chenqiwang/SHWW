@@ -95,24 +95,22 @@
             </div>
         </div>
     </div>
-    <div class="am-u-sm-0 am-u-md-0 am-u-lg-4 padding-none am-hide-sm">
+   <div class="am-u-sm-0 am-u-md-0 am-u-lg-4 padding-none am-hide-sm">
         <div class="tag">
             <div data-am-widget="titlebar" class="am-titlebar am-titlebar-default" >
                 <h2 class="am-titlebar-title ">
-                    热门标签
+                    热门网站
                 </h2>
             </div>
             <ul>
-                <li class="active"><a href="#">的房间打开</a></li>
-                <li><a href="#">阿斯达</a></li>
-                <li><a href="#">恩恩</a></li>
-                <li><a href="#">十二分</a></li>
-                <li><a href="#">爱妃</a></li>
-                <li><a href="#">而非</a></li>
-                <li><a href="#">为非</a></li>
-                <li><a href="#">二位</a></li>
-                <li><a href="#">维吾尔</a></li>
-                <li><a href="#">玩儿玩儿</a></li>
+                <li class="active"><a href="www.taobao.com">淘宝-淘出你所需要的东西</a></li>
+                <li><a href="#">京东-优质的选择</a></li>
+                <li><a href="#">360-你的安全必备</a></li>
+                <li><a href="#">天猫-生活的必须</a></li>
+                <li><a href="#">浪琴</a></li>
+                <li><a href="#">劳力士</a></li>
+                <li><a href="#">GUCCI</a></li>
+                <li><a href="#">香奈儿</a></li>
             </ul>
             <div class="am-cf"></div>
         </div>
@@ -121,40 +119,19 @@
         <div class="tag">
             <div data-am-widget="titlebar" class="am-titlebar am-titlebar-default" >
                 <h2 class="am-titlebar-title ">
-                    热门标签
+                    热门车位
                 </h2>
             </div>
             <ul>
-                <li class="active"><a href="#">的房间打开</a></li>
-                <li><a href="#">阿斯达</a></li>
-                <li><a href="#">恩恩</a></li>
-                <li><a href="#">十二分</a></li>
-                <li><a href="#">爱妃</a></li>
-                <li><a href="#">而非</a></li>
-                <li><a href="#">为非</a></li>
-                <li><a href="#">二位</a></li>
-                <li><a href="#">维吾尔</a></li>
-                <li><a href="#">玩儿玩儿</a></li>
-            </ul>
-            <div class="am-cf"></div>
-        </div>
-                <div class="tag">
-            <div data-am-widget="titlebar" class="am-titlebar am-titlebar-default" >
-                <h2 class="am-titlebar-title ">
-                    热门标签
-                </h2>
-            </div>
-            <ul>
-                <li class="active"><a href="#">的房间打开</a></li>
-                <li><a href="#">阿斯达</a></li>
-                <li><a href="#">恩恩</a></li>
-                <li><a href="#">十二分</a></li>
-                <li><a href="#">爱妃</a></li>
-                <li><a href="#">而非</a></li>
-                <li><a href="#">为非</a></li>
-                <li><a href="#">二位</a></li>
-                <li><a href="#">维吾尔</a></li>
-                <li><a href="#">玩儿玩儿</a></li>
+                <li class="active"><a href="#">宝马</a></li>
+                <li><a href="#">奔驰</a></li>
+                <li><a href="#">奥利</a></li>
+                <li><a href="#">奥迪</a></li>
+                <li><a href="#">法拉利</a></li>
+                <li><a href="#">兰博基尼</a></li>
+                <li><a href="#">迈凯伦</a></li>
+                <li><a href="#">吉利</a></li>
+                <li><a href="#">QQ</a></li>
             </ul>
             <div class="am-cf"></div>
         </div>

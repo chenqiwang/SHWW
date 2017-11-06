@@ -38,6 +38,7 @@ class LoginController extends Controller
         $info = $request->except('_token');
         $phone = $info['phone'];
         $pwd = $info['pwd'];
+        $pwd = md5($pwd);
         if (Redis::exists('HASH:'.$phone))
         {
             $user = Redis::hGetall('HASH:'.$phone);
@@ -45,7 +46,6 @@ class LoginController extends Controller
             return redirect('/');
         }
 
-        //$pwd = md5($pwd);
         $res = User_RegloginModel::where('phone',$phone)->first();
         if ($res){
             if ($res->pwd == $pwd) {
@@ -111,7 +111,7 @@ class LoginController extends Controller
             $phone = $info['phone'];
             $pwd = $info['pwd'];
             //密码加密
-            //$pwd = md5($pwd);
+            $pwd = md5($pwd);
             if ($code == $scode) {
                 $res = User_RegloginModel::where('phone', $phone)->first();
                 if (!$res){
@@ -150,5 +150,42 @@ class LoginController extends Controller
     {
         $request->session()->pull('user');
         return redirect('/');
+    }
+
+    public function forGet()
+    {
+        return view('home.login.fone');
+    }
+
+    public function doForget(Request $request)
+    {
+        $info = $request->except('_token');
+        $phone = $info['phone'];
+        $scode = $info['scode'];
+        $code = $info['code'];
+        if ($code == $scode) {
+            return view('home.login.ftwo', compact('phone'));
+        } else {
+            //回到上一页
+            return back()->with('msg', '验证码错误，请重新输入！');
+        }
+        
+    }
+
+    public function doReset(Request $request)
+    {
+        $info = $request->except('_token');
+        $phone = $info['phone'];
+        $pwd = md5($info['pwd']);
+        //$pwd = $info['pwd'];
+        $res = DB::table('tab_user_reglogin')->where('phone', $phone)->first();
+        if ($res) {
+            $result = DB::table('tab_user_reglogin')->where('phone', $phone)->update(['pwd' => $pwd]);
+            return $result;
+        } else {
+            //回到忘记密码
+            return 0;
+        }
+        
     }
 }

@@ -82,10 +82,10 @@
             </ul>
             @if(session('user'))
                 <div style="height: 70px;width: 260px; float: right">
-                    <img src="{{ asset('image/'.session('user')['photo']) }}" style="height: 70px;width: 70px; color: black; float: left">
+                    <img src="{{ asset('pic/'.session('user')['photo']) }}" style="height: 70px;width: 70px; color: black; float: left">
                     <a style="font-size: 16px;margin-left: 8px;">{{ session('user')['nickname'] }}</a>
                     <a style="font-size: 12px;color: white;margin-left: 20px;">积分:{{ session('user')['score'] }}</a>
-                    <button class="am-btn am-btn-danger am-btn-xs am-radius" style="margin-left: 5px;" ><i class="am-icon-cog"></i>个人中心</button>
+                    <a href="{{ URL('/data') }}"><button class="am-btn am-btn-danger am-btn-xs am-radius" style="margin-left: 5px;" ><i class="am-icon-cog"></i>个人中心</button></a>
 
                     <a href="{{ URL('/doLogOut') }}"><button  class="am-btn am-btn-danger am-btn-xs am-radius" >注销</button></a>
                 </div>
@@ -123,16 +123,16 @@
   am-avg-md-2 am-avg-lg-2 am-gallery-overlay" data-am-gallery="{ pureview: true }" >
             <li class="w2">
                 <div class="am-gallery-item">
-                    <a href="{{ asset('home/Temp-images/dd.jpg') }}">
-                        <img src="{{ asset('home/Temp-images/dd.jpg') }}" />
-                        <h3 class="am-gallery-title">邮箱：xxxxxx@qq.com</h3>
+                    <a href="{{ asset('ad/logo.png') }}">
+                        <img src="{{ asset('ad/logo.png') }}" />
+                        <h3 class="am-gallery-title">邮箱：993603471@qq.com</h3>
                     </a>
                 </div>
             </li>
             <li   class="w2">
                 <div class="am-gallery-item">
-                    <a href="{{ asset('home/Temp-images/dd.jpg') }}">
-                        <img src="{{ asset('home/Temp-images/dd.jpg') }}"/>
+                    <a href="{{ asset('ad/logo.png') }}">
+                        <img src="{{ asset('ad/logo.png') }}"/>
                         <h3 class="am-gallery-title">关于我们：shww</h3>
                     </a>
                 </div>
